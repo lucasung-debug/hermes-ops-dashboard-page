@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hermes Ops Dashboard</title>
+  <title>Vibe Coding Portfolio · Hermes Ops</title>
   <style>
     :root {
       --bg: #0F172A;
@@ -133,6 +133,12 @@
       font-size: 16px;
     }
 
+    .section-lead {
+      margin: -4px 0 16px;
+      color: var(--text-2);
+      font-size: 15px;
+    }
+
     .status-panel {
       display: grid;
       gap: 10px;
@@ -245,6 +251,59 @@
       margin-bottom: 0;
       color: var(--text-2);
       font-size: 14px;
+    }
+
+    .card ul {
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: var(--text-2);
+      font-size: 14px;
+    }
+
+    .card li + li { margin-top: 6px; }
+
+    .step-card {
+      min-height: 150px;
+    }
+
+    .step-index {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      margin-bottom: 12px;
+      border: 1px solid rgba(59, 130, 246, 0.56);
+      border-radius: 999px;
+      background: rgba(59, 130, 246, 0.14);
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .chip-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 36px;
+      padding: 7px 11px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 800;
     }
 
     .focus-card {
@@ -435,6 +494,10 @@
       font-size: 14px;
     }
 
+    .deploy-card .quick-actions {
+      margin-top: 2px;
+    }
+
     .snapshot {
       display: inline-flex;
       align-items: center;
@@ -484,6 +547,7 @@
       .status-strip { grid-template-columns: repeat(3, 1fr); }
       .quick-actions { grid-template-columns: repeat(4, 1fr); }
       .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .case-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
       .kanban { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .command-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .bottom-bar { display: none; }
@@ -500,40 +564,71 @@
   <header class="appbar">
     <div class="appbar-inner">
       <div class="brand">
-        <strong>Hermes Ops</strong>
-        <span>모바일 에이전트 운영 대시보드</span>
+        <strong>Vibe Coding Portfolio</strong>
+        <span>AI 에이전트로 실제 운영물을 만드는 포트폴리오</span>
       </div>
       <nav class="appbar-actions" aria-label="빠른 이동">
-        <a class="button primary" href="https://github.com/users/lucasung-debug/projects/1">Project</a>
-        <a class="button" href="https://github.com/lucasung-debug/hermes-ops-dashboard">Repo</a>
-        <a class="button" href="https://github.com/lucasung-debug/hermes-ops-dashboard/issues">Issues</a>
+        <a class="button primary" href="#case-dashboard">Demo</a>
+        <a class="button" href="#workflow">Workflow</a>
+        <a class="button" href="https://github.com/users/lucasung-debug/projects/1">Board</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <nav class="status-strip" aria-label="상단 상태 빠른 작업">
-      <a class="button primary" href="https://lucasung-debug.github.io/hermes-ops-dashboard-page/"><span><span class="button-label">Live Page</span><span class="button-hint">공개 모바일 대시보드</span></span></a>
-      <a class="button" href="https://github.com/lucasung-debug/hermes-ops-dashboard"><span><span class="button-label">Private Source</span><span class="button-hint">비공개 운영 원본</span></span></a>
-      <a class="button" href="https://github.com/users/lucasung-debug/projects/1"><span><span class="button-label">Project Board</span><span class="button-hint">오늘 작업 흐름</span></span></a>
+    <nav class="status-strip" aria-label="포트폴리오 빠른 작업">
+      <a class="button primary" href="#case-dashboard"><span><span class="button-label">라이브 데모 보기</span><span class="button-hint">Hermes Ops 사례</span></span></a>
+      <a class="button" href="#workflow"><span><span class="button-label">작업 방식 보기</span><span class="button-hint">기획부터 배포까지</span></span></a>
+      <a class="button" href="https://github.com/users/lucasung-debug/projects/1"><span><span class="button-label">GitHub 보드 보기</span><span class="button-hint">실제 작업 흐름</span></span></a>
     </nav>
 
     <section class="hero" aria-labelledby="page-title">
       <div>
-        <p class="eyebrow">GitHub 모바일 운영판</p>
-        <h1 id="page-title">Hermes 에이전트 상태와 작업 흐름을 한 화면에서 확인합니다.</h1>
-        <p class="lead">Telegram 또는 모바일 GitHub에서 Hermes 작업 카드, 에이전트 역할, 운영 규칙을 빠르게 확인하기 위한 정적 대시보드입니다. 토큰이나 비밀값은 표시하지 않습니다.</p>
+        <p class="eyebrow">AI agent orchestration / vibe coding operator-builder</p>
+        <h1 id="page-title">아이디어를 에이전트 팀으로 실제 작동하는 화면까지 밀어붙입니다.</h1>
+        <p class="lead">이 포트폴리오는 기획, 에이전트 라우팅, Codex 구현, QA, 라이브 배포까지 이어지는 실제 작업 흐름을 보여줍니다. Hermes Ops Dashboard는 그 과정을 공개 가능한 형태로 정리한 대표 사례입니다.</p>
         <span class="snapshot">정적 스냅샷 · 수동/스크립트 배포</span>
       </div>
       <div class="status-panel" aria-label="운영 상태 요약">
-        <div class="status-row"><span>현재 보드</span><strong>GitHub Projects #1</strong></div>
-        <div class="status-row"><span>코드 작성 권한</span><strong>Codex 단독</strong></div>
-        <div class="status-row"><span>품질 판단</span><strong>Claude 최종 게이트</strong></div>
+        <div class="status-row"><span>포지션</span><strong>AI 에이전트 운영자 / 빌더</strong></div>
+        <div class="status-row"><span>구현 방식</span><strong>Codex-led implementation</strong></div>
+        <div class="status-row"><span>대표 증거</span><strong>Hermes Ops Dashboard</strong></div>
+      </div>
+    </section>
+
+    <section aria-labelledby="build-title">
+      <h2 id="build-title">무엇을 만드는가</h2>
+      <p class="section-lead">아이디어를 말로 끝내지 않고, 모바일에서 열 수 있는 운영 화면과 검증 가능한 작업 흐름으로 바꿉니다.</p>
+      <div class="grid">
+        <article class="card"><span class="card-meta">Mobile ops</span><h3>AI 운영 대시보드</h3><p>모바일 콘솔, 작업 라우팅, 라이브 미러를 한 화면에 묶어 실제 운영 판단에 쓰는 대시보드를 만듭니다.</p></article>
+        <article class="card"><span class="card-meta">Agent routing</span><h3>에이전트 워크플로우</h3><p>Hermes, Codex, Claude, Kimi, MMX처럼 역할이 다른 에이전트를 목적별로 분리해 작업 흐름을 설계합니다.</p></article>
+        <article class="card"><span class="card-meta">Verification</span><h3>빠른 프로토타입 검증</h3><p>smoke test, publish script, live verification을 붙여 공개 가능한 결과물인지 빠르게 확인합니다.</p></article>
+      </div>
+    </section>
+
+    <section id="workflow" aria-labelledby="workflow-title">
+      <h2 id="workflow-title">작업 방식</h2>
+      <div class="grid">
+        <article class="card step-card"><span class="step-index">1</span><h3>기획</h3><p>사용자가 실제로 확인해야 하는 화면, 링크, 액션을 먼저 정리합니다.</p></article>
+        <article class="card step-card"><span class="step-index">2</span><h3>에이전트 라우팅</h3><p>기획, 구현, 검증, 검색, 긴 컨텍스트 처리 역할을 에이전트별로 나눕니다.</p></article>
+        <article class="card step-card"><span class="step-index">3</span><h3>Codex 구현</h3><p>Codex가 정적 HTML/CSS/JS, Python stdlib 도구, 테스트를 직접 수정합니다.</p></article>
+        <article class="card step-card"><span class="step-index">4</span><h3>검증</h3><p>smoke test와 py_compile로 공개 페이지와 helper script의 기본 품질을 확인합니다.</p></article>
+        <article class="card step-card"><span class="step-index">5</span><h3>배포</h3><p>비공개 source와 공개 sanitized mirror를 분리해 GitHub Pages로 공유 가능한 결과를 냅니다.</p></article>
+      </div>
+    </section>
+
+    <section id="case-dashboard" aria-labelledby="case-title">
+      <h2 id="case-title">대표 작업: Hermes Ops Dashboard</h2>
+      <p class="section-lead">Hermes Ops Dashboard는 이 포트폴리오의 featured case study입니다. 대시보드 자체보다 중요한 것은 운영 문제를 화면, 버튼, 검증 루프로 바꾼 과정입니다.</p>
+      <div class="case-grid">
+        <article class="card"><span class="card-meta">Problem</span><h3>모바일 운영 확인</h3><p>mobile에서 운영 상태, 칸반, 에이전트 역할을 빠르게 확인해야 했습니다.</p></article>
+        <article class="card"><span class="card-meta">Solution</span><h3>분리된 공개 미러</h3><p>private source와 public sanitized Pages mirror를 나누고, action buttons로 필요한 작업 화면에 바로 이동하게 했습니다.</p></article>
+        <article class="card"><span class="card-meta">Proof</span><h3>검증 가능한 링크</h3><p>live URL, Project board, issue links, publish helper가 남아 있어 결과와 운영 과정을 함께 확인할 수 있습니다.</p></article>
       </div>
     </section>
 
     <section aria-labelledby="focus-title">
-      <h2 id="focus-title">오늘의 운영 초점</h2>
+      <h2 id="focus-title">현재 확장 중인 작업</h2>
       <div class="grid">
         <article class="card focus-card">
           <div><span class="card-meta">In Progress</span><h3>#6 역할표 동기화 자동화</h3><p>VPS 역할표와 GitHub 스냅샷을 맞추고, 공개 대시보드까지 이어지는 반복 가능한 흐름을 정리합니다.</p></div>
@@ -550,8 +645,23 @@
       </div>
     </section>
 
+    <section aria-labelledby="stack-title">
+      <h2 id="stack-title">기술 스택 / 운영 방식</h2>
+      <div class="chip-list" aria-label="기술 스택 목록">
+        <span class="chip">Hermes</span>
+        <span class="chip">Codex</span>
+        <span class="chip">GitHub Projects</span>
+        <span class="chip">GitHub Pages</span>
+        <span class="chip">Python stdlib</span>
+        <span class="chip">Static HTML/CSS/JS</span>
+        <span class="chip">Smoke tests</span>
+        <span class="chip">Agent role routing</span>
+      </div>
+    </section>
+
     <section aria-labelledby="commands-title">
-      <h2 id="commands-title">Hermes에게 이렇게 지시</h2>
+      <h2 id="commands-title">바로 해볼 수 있는 액션</h2>
+      <p class="section-lead">아래 버튼은 포트폴리오용 데모가 아니라 실제 운영 흐름에서 쓰는 shortcut입니다.</p>
       <div class="command-grid">
         <button class="command-chip" type="button" data-command="#6 계속 진행해" aria-label="Hermes 명령 복사: #6 계속 진행해"><code>#6 계속 진행해</code></button>
         <button class="command-chip" type="button" data-command="Grok 연결 상태 점검해" aria-label="Hermes 명령 복사: Grok 연결 상태 점검해"><code>Grok 연결 상태 점검해</code></button>
@@ -577,8 +687,9 @@
     </section>
 
     <section aria-labelledby="quick-actions-title">
-      <h2 id="quick-actions-title">빠른 작업</h2>
+      <h2 id="quick-actions-title">사례 링크</h2>
       <div class="quick-actions">
+        <a class="button primary" href="https://lucasung-debug.github.io/hermes-ops-dashboard-page/">Live Page</a>
         <a class="button primary" href="https://github.com/users/lucasung-debug/projects/1">Project 열기</a>
         <a class="button" href="https://github.com/lucasung-debug/hermes-ops-dashboard">Repo 열기</a>
         <a class="button" href="https://github.com/lucasung-debug/hermes-ops-dashboard/issues">Issues 열기</a>
@@ -586,7 +697,7 @@
     </section>
 
     <section aria-labelledby="agents-title">
-      <h2 id="agents-title">에이전트 역할</h2>
+      <h2 id="agents-title">사례 속 에이전트 역할</h2>
       <div class="grid">
         <article class="card"><span class="card-meta">Code / Security</span><h3>Codex</h3><p>코드 작성, 테스트, 보안 점검을 담당합니다. Hermes 규칙상 기본 코드 작성자는 Codex입니다.</p></article>
         <article class="card"><span class="card-meta">QA / Architecture</span><h3>Claude</h3><p>기획, 품질 관리, 아키텍처 최종 판단, QA 차단 기준을 담당합니다.</p></article>
@@ -600,7 +711,7 @@
     </section>
 
     <section aria-labelledby="kanban-title">
-      <h2 id="kanban-title">Kanban 스냅샷</h2>
+      <h2 id="kanban-title">Case-study Kanban 스냅샷</h2>
       <div class="kanban">
         <article class="lane">
           <div class="lane-head"><h3>Done</h3><span>완료</span></div>
@@ -632,7 +743,7 @@
     </section>
 
     <section aria-labelledby="deploy-title">
-      <h2 id="deploy-title">배포 상태</h2>
+      <h2 id="deploy-title">Case-study 배포 상태</h2>
       <article class="deploy-card">
         <h3>비공개 원본과 공개 미러를 분리합니다.</h3>
         <p>작업 원본은 비공개 source repo에서 관리하고, 공개 Pages mirror에는 검증된 `site/index.html` 사본만 배포합니다. 공개 미러는 토큰, 개인 인증값, 비공개 운영 메모를 포함하지 않는 sanitized dashboard copy로 유지합니다.</p>
@@ -649,12 +760,21 @@
         <article class="rule"><strong>Grok / Antigravity</strong><p>연결된 경우 검색 1순위입니다. 미연결 상태에서는 GitHub 이슈로 연결 작업을 추적합니다.</p></article>
       </div>
     </section>
+
+    <section aria-labelledby="contact-title">
+      <h2 id="contact-title">연락 / 협업</h2>
+      <p class="section-lead">협업 문의는 공개 이슈나 Telegram/Hermes로 넘길 수 있는 짧은 문구부터 시작합니다.</p>
+      <div class="quick-actions">
+        <button class="command-chip" type="button" data-command="포트폴리오 보고 연락드립니다" aria-label="연락 문구 복사: 포트폴리오 보고 연락드립니다"><code>Telegram에서 이 문구 보내기</code></button>
+        <a class="button primary" href="https://github.com/lucasung-debug/hermes-ops-dashboard/issues/new?title=%5BPortfolio%20Contact%5D%20협업%20문의&body=포트폴리오를%20보고%20문의합니다.%0A%0A관심%20있는%20작업:%20">새 협업 이슈 만들기</a>
+      </div>
+    </section>
   </main>
 
   <nav class="bottom-bar" aria-label="모바일 빠른 작업">
-    <a href="https://github.com/users/lucasung-debug/projects/1">Project</a>
-    <a href="https://github.com/lucasung-debug/hermes-ops-dashboard">Repo</a>
-    <a href="https://github.com/lucasung-debug/hermes-ops-dashboard/issues">Issues</a>
+    <a href="#case-dashboard">Demo</a>
+    <a href="#workflow">Workflow</a>
+    <a href="https://github.com/users/lucasung-debug/projects/1">Board</a>
   </nav>
   <script>
     (function () {
