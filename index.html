@@ -139,6 +139,34 @@
       align-content: start;
     }
 
+    .status-strip {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .status-strip .button {
+      justify-content: flex-start;
+      gap: 10px;
+      min-height: 48px;
+    }
+
+    .button-label {
+      display: block;
+      color: var(--text);
+      font-size: 14px;
+      line-height: 1.2;
+    }
+
+    .button-hint {
+      display: block;
+      color: rgba(248, 250, 252, 0.72);
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
     .status-row {
       min-height: 58px;
       padding: 12px 14px;
@@ -213,6 +241,22 @@
       margin-bottom: 0;
       color: var(--text-2);
       font-size: 14px;
+    }
+
+    .focus-card {
+      display: grid;
+      gap: 12px;
+      min-height: 158px;
+    }
+
+    .focus-card .next-step {
+      align-self: end;
+      margin: 0;
+      padding-top: 10px;
+      border-top: 1px solid var(--line);
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 700;
     }
 
     .card-meta {
@@ -299,6 +343,65 @@
     .rule strong { display: block; margin-bottom: 5px; }
     .rule p { margin-bottom: 0; color: var(--text-2); }
 
+    .command-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    .command-chip {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 48px;
+      padding: 11px 13px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface-3);
+      color: var(--text);
+      font: inherit;
+      font-weight: 800;
+      text-align: left;
+      cursor: default;
+    }
+
+    .command-chip code {
+      color: var(--text);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 14px;
+      white-space: normal;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+    }
+
+    .deploy-card {
+      display: grid;
+      gap: 12px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+    }
+
+    .deploy-card p {
+      margin-bottom: 0;
+      color: var(--text-2);
+      font-size: 14px;
+    }
+
+    .snapshot {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      margin-top: 14px;
+      padding: 4px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--text-2);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
     .bottom-bar {
       position: fixed;
       right: 0;
@@ -332,15 +435,18 @@
       main { padding: 30px 24px 56px; }
       .hero { grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.65fr); padding: 30px; }
       h1 { font-size: 46px; }
+      .status-strip { grid-template-columns: repeat(3, 1fr); }
       .quick-actions { grid-template-columns: repeat(3, 1fr); }
       .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .kanban { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .command-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .bottom-bar { display: none; }
     }
 
     @media (min-width: 1040px) {
       .grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
       .kanban { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .command-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
     }
   </style>
 </head>
@@ -360,16 +466,51 @@
   </header>
 
   <main>
+    <nav class="status-strip" aria-label="상단 상태 빠른 작업">
+      <a class="button primary" href="https://lucasung-debug.github.io/hermes-ops-dashboard-page/"><span><span class="button-label">Live Page</span><span class="button-hint">공개 모바일 대시보드</span></span></a>
+      <a class="button" href="https://github.com/lucasung-debug/hermes-ops-dashboard"><span><span class="button-label">Private Source</span><span class="button-hint">비공개 운영 원본</span></span></a>
+      <a class="button" href="https://github.com/users/lucasung-debug/projects/1"><span><span class="button-label">Project Board</span><span class="button-hint">오늘 작업 흐름</span></span></a>
+    </nav>
+
     <section class="hero" aria-labelledby="page-title">
       <div>
         <p class="eyebrow">GitHub 모바일 운영판</p>
         <h1 id="page-title">Hermes 에이전트 상태와 작업 흐름을 한 화면에서 확인합니다.</h1>
         <p class="lead">Telegram 또는 모바일 GitHub에서 Hermes 작업 카드, 에이전트 역할, 운영 규칙을 빠르게 확인하기 위한 정적 대시보드입니다. 토큰이나 비밀값은 표시하지 않습니다.</p>
+        <span class="snapshot">정적 스냅샷 · 수동/스크립트 배포</span>
       </div>
       <div class="status-panel" aria-label="운영 상태 요약">
         <div class="status-row"><span>현재 보드</span><strong>GitHub Projects #1</strong></div>
         <div class="status-row"><span>코드 작성 권한</span><strong>Codex 단독</strong></div>
         <div class="status-row"><span>품질 판단</span><strong>Claude 최종 게이트</strong></div>
+      </div>
+    </section>
+
+    <section aria-labelledby="focus-title">
+      <h2 id="focus-title">오늘의 운영 초점</h2>
+      <div class="grid">
+        <article class="card focus-card">
+          <div><span class="card-meta">In Progress</span><h3>#6 역할표 동기화 자동화</h3><p>VPS 역할표와 GitHub 스냅샷을 맞추고, 공개 대시보드까지 이어지는 반복 가능한 흐름을 정리합니다.</p></div>
+          <p class="next-step">다음 단계: sync/publish loop</p>
+        </article>
+        <article class="card focus-card">
+          <div><span class="card-meta">Blocked</span><h3>검색 에이전트 연결</h3><p>Grok과 Antigravity를 검색 1순위로 쓰기 전 CLI 실행 경로와 연결 상태 확인이 필요합니다.</p></div>
+          <p class="next-step">다음 단계: CLI path confirmed</p>
+        </article>
+        <article class="card focus-card">
+          <div><span class="card-meta">Ready</span><h3>이미지 생성 경로</h3><p>GPT Image를 고품질 이미지 생성 경로로 쓰기 위한 사용 루트와 운영 규칙을 확인합니다.</p></div>
+          <p class="next-step">다음 단계: GPT Image route discovery</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="commands-title">
+      <h2 id="commands-title">Hermes에게 이렇게 지시</h2>
+      <div class="command-grid">
+        <button class="command-chip" type="button"><code>#6 계속 진행해</code></button>
+        <button class="command-chip" type="button"><code>Grok 연결 상태 점검해</code></button>
+        <button class="command-chip" type="button"><code>오늘 칸반 요약해줘</code></button>
+        <button class="command-chip" type="button"><code>대시보드 다시 배포해</code></button>
       </div>
     </section>
 
@@ -426,6 +567,15 @@
           </div>
         </article>
       </div>
+    </section>
+
+    <section aria-labelledby="deploy-title">
+      <h2 id="deploy-title">배포 상태</h2>
+      <article class="deploy-card">
+        <h3>비공개 원본과 공개 미러를 분리합니다.</h3>
+        <p>작업 원본은 비공개 source repo에서 관리하고, 공개 Pages mirror에는 검증된 `site/index.html` 사본만 배포합니다. 공개 미러는 토큰, 개인 인증값, 비공개 운영 메모를 포함하지 않는 sanitized dashboard copy로 유지합니다.</p>
+        <p>배포 helper는 HTML을 검사한 뒤 공개 미러의 `index.html`과 README를 갱신합니다. 이후 Hermes가 공개 미러 저장소에서 커밋과 푸시를 수행합니다.</p>
+      </article>
     </section>
 
     <section aria-labelledby="rules-title">
