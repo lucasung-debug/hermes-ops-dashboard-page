@@ -518,7 +518,7 @@
       left: 0;
       z-index: 11;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 8px;
       padding: 10px;
       border-top: 1px solid var(--line);
@@ -570,6 +570,7 @@
       <nav class="appbar-actions" aria-label="빠른 이동">
         <a class="button primary" href="#case-dashboard">Demo</a>
         <a class="button" href="#workflow">Workflow</a>
+        <a class="button" href="#contributions">Contributions</a>
         <a class="button" href="https://github.com/users/lucasung-debug/projects/1">Board</a>
       </nav>
     </div>
@@ -624,6 +625,19 @@
         <article class="card"><span class="card-meta">Problem</span><h3>모바일 운영 확인</h3><p>mobile에서 운영 상태, 칸반, 에이전트 역할을 빠르게 확인해야 했습니다.</p></article>
         <article class="card"><span class="card-meta">Solution</span><h3>분리된 공개 미러</h3><p>private source와 public sanitized Pages mirror를 나누고, action buttons로 필요한 작업 화면에 바로 이동하게 했습니다.</p></article>
         <article class="card"><span class="card-meta">Proof</span><h3>검증 가능한 링크</h3><p>live URL, Project board, issue links, publish helper가 남아 있어 결과와 운영 과정을 함께 확인할 수 있습니다.</p></article>
+      </div>
+    </section>
+
+    <section id="contributions" aria-labelledby="contributions-title">
+      <h2 id="contributions-title">기여 / 포크 실험</h2>
+      <p class="section-lead">직접 만든 대표작과 구분되는, 포크 기반 검토와 일부 개선 기록입니다.</p>
+      <div class="grid">
+        <article class="card">
+          <span class="card-meta">Fork contribution</span>
+          <h3>clabs</h3>
+          <p>대표작이 아니라 포크 기반 기여/실험입니다. Claude Code GUI 프로젝트를 포크해 일부 기능/워크플로우를 검토·개선한 기여 기록입니다.</p>
+          <p><a class="button" href="https://github.com/lucasung-debug/clabs">GitHub에서 보기</a></p>
+        </article>
       </div>
     </section>
 
@@ -774,6 +788,7 @@
   <nav class="bottom-bar" aria-label="모바일 빠른 작업">
     <a href="#case-dashboard">Demo</a>
     <a href="#workflow">Workflow</a>
+    <a href="#contributions">Contrib</a>
     <a href="https://github.com/users/lucasung-debug/projects/1">Board</a>
   </nav>
   <script>
