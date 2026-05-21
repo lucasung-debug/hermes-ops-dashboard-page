@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hermes Ops Dashboard</title>
+  <style>
+    :root {
+      --bg: #0F172A;
+      --surface: #1E293B;
+      --text: #F8FAFC;
+      --text-2: #94A3B8;
+      --accent: #3B82F6;
+      --accent-hover: #2563EB;
+      --display-font: 'Inter', system-ui, sans-serif;
+      --body-font: 'Inter', system-ui, sans-serif;
+      --line: rgba(148, 163, 184, 0.24);
+      --surface-2: #172033;
+      --surface-3: #111827;
+      --ok: #22C55E;
+      --warn: #F59E0B;
+      --blocked: #F87171;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--body-font);
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    a { color: inherit; }
+
+    .appbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid var(--line);
+      background: rgba(15, 23, 42, 0.94);
+      backdrop-filter: blur(14px);
+    }
+
+    .appbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 14px 18px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 0;
+    }
+
+    .brand strong {
+      font-family: var(--display-font);
+      font-size: 17px;
+      letter-spacing: 0;
+    }
+
+    .brand span {
+      color: var(--text-2);
+      font-size: 12px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .appbar-actions {
+      display: none;
+      gap: 10px;
+    }
+
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 22px 18px 96px;
+    }
+
+    .hero {
+      display: grid;
+      gap: 18px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: linear-gradient(180deg, var(--surface), var(--surface-2));
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      margin-bottom: 10px;
+      font-family: var(--display-font);
+      font-size: 34px;
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      margin-bottom: 14px;
+      font-size: 21px;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin-bottom: 8px;
+      font-size: 16px;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      margin-bottom: 0;
+      color: var(--text-2);
+      font-size: 16px;
+    }
+
+    .status-panel {
+      display: grid;
+      gap: 10px;
+      align-content: start;
+    }
+
+    .status-row {
+      min-height: 58px;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(15, 23, 42, 0.58);
+    }
+
+    .status-row span {
+      display: block;
+      color: var(--text-2);
+      font-size: 12px;
+    }
+
+    .status-row strong {
+      display: block;
+      margin-top: 2px;
+      font-size: 16px;
+    }
+
+    section { margin-top: 30px; }
+
+    .quick-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 11px 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      color: var(--text);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .button.primary {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: #FFFFFF;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      border-color: var(--accent-hover);
+      background: var(--accent-hover);
+      color: #FFFFFF;
+      outline: none;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .card {
+      min-height: 128px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+    }
+
+    .card p {
+      margin-bottom: 0;
+      color: var(--text-2);
+      font-size: 14px;
+    }
+
+    .card-meta {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      margin-bottom: 12px;
+      padding: 3px 9px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--text-2);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .kanban {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .lane {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface-3);
+      overflow: hidden;
+    }
+
+    .lane-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 13px 14px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(30, 41, 59, 0.72);
+    }
+
+    .lane-head span {
+      color: var(--text-2);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .issue-list {
+      display: grid;
+      gap: 10px;
+      padding: 12px;
+    }
+
+    .issue {
+      display: block;
+      min-height: 52px;
+      padding: 11px 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      text-decoration: none;
+    }
+
+    .issue strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 14px;
+    }
+
+    .issue span {
+      color: var(--text-2);
+      font-size: 13px;
+    }
+
+    .rules {
+      display: grid;
+      gap: 10px;
+    }
+
+    .rule {
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+    }
+
+    .rule strong { display: block; margin-bottom: 5px; }
+    .rule p { margin-bottom: 0; color: var(--text-2); }
+
+    .bottom-bar {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 11;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      padding: 10px;
+      border-top: 1px solid var(--line);
+      background: rgba(15, 23, 42, 0.96);
+      backdrop-filter: blur(14px);
+    }
+
+    .bottom-bar a {
+      min-height: 44px;
+      padding: 9px 8px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 700;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    @media (min-width: 700px) {
+      .appbar-actions { display: flex; }
+      main { padding: 30px 24px 56px; }
+      .hero { grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.65fr); padding: 30px; }
+      h1 { font-size: 46px; }
+      .quick-actions { grid-template-columns: repeat(3, 1fr); }
+      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .kanban { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .bottom-bar { display: none; }
+    }
+
+    @media (min-width: 1040px) {
+      .grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .kanban { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    }
+  </style>
+</head>
+<body>
+  <header class="appbar">
+    <div class="appbar-inner">
+      <div class="brand">
+        <strong>Hermes Ops</strong>
+        <span>모바일 에이전트 운영 대시보드</span>
+      </div>
+      <nav class="appbar-actions" aria-label="빠른 이동">
+        <a class="button primary" href="https://github.com/users/lucasung-debug/projects/1">Project</a>
+        <a class="button" href="https://github.com/lucasung-debug/hermes-ops-dashboard">Repo</a>
+        <a class="button" href="https://github.com/lucasung-debug/hermes-ops-dashboard/issues">Issues</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">GitHub 모바일 운영판</p>
+        <h1 id="page-title">Hermes 에이전트 상태와 작업 흐름을 한 화면에서 확인합니다.</h1>
+        <p class="lead">Telegram 또는 모바일 GitHub에서 Hermes 작업 카드, 에이전트 역할, 운영 규칙을 빠르게 확인하기 위한 정적 대시보드입니다. 토큰이나 비밀값은 표시하지 않습니다.</p>
+      </div>
+      <div class="status-panel" aria-label="운영 상태 요약">
+        <div class="status-row"><span>현재 보드</span><strong>GitHub Projects #1</strong></div>
+        <div class="status-row"><span>코드 작성 권한</span><strong>Codex 단독</strong></div>
+        <div class="status-row"><span>품질 판단</span><strong>Claude 최종 게이트</strong></div>
+      </div>
+    </section>
+
+    <section aria-labelledby="quick-actions-title">
+      <h2 id="quick-actions-title">빠른 작업</h2>
+      <div class="quick-actions">
+        <a class="button primary" href="https://github.com/users/lucasung-debug/projects/1">Project 열기</a>
+        <a class="button" href="https://github.com/lucasung-debug/hermes-ops-dashboard">Repo 열기</a>
+        <a class="button" href="https://github.com/lucasung-debug/hermes-ops-dashboard/issues">Issues 열기</a>
+      </div>
+    </section>
+
+    <section aria-labelledby="agents-title">
+      <h2 id="agents-title">에이전트 역할</h2>
+      <div class="grid">
+        <article class="card"><span class="card-meta">Code / Security</span><h3>Codex</h3><p>코드 작성, 테스트, 보안 점검을 담당합니다. Hermes 규칙상 기본 코드 작성자는 Codex입니다.</p></article>
+        <article class="card"><span class="card-meta">QA / Architecture</span><h3>Claude</h3><p>기획, 품질 관리, 아키텍처 최종 판단, QA 차단 기준을 담당합니다.</p></article>
+        <article class="card"><span class="card-meta">Review Support</span><h3>DeepSeek</h3><p>OpenCode 경로를 통한 보조 코드 리뷰와 대안 구현 검토에 사용합니다.</p></article>
+        <article class="card"><span class="card-meta">Planning</span><h3>Kimi</h3><p>긴 로그 이해, 기획 보조, 저장소 맥락 파악, 한국어 설명 요약에 적합합니다.</p></article>
+        <article class="card"><span class="card-meta">Long Context</span><h3>MMX</h3><p>긴 컨텍스트 영어 분석, 대형 문서 압축, 검색 보조 2순위로 사용합니다.</p></article>
+        <article class="card"><span class="card-meta">Search / Media</span><h3>Grok</h3><p>연결 시 검색 1순위입니다. 빠른 이미지와 영상 생성 경로로도 취급합니다.</p></article>
+        <article class="card"><span class="card-meta">Search</span><h3>Antigravity</h3><p>Google Antigravity CLI 연결 후 Grok과 함께 검색 1순위로 올립니다.</p></article>
+        <article class="card"><span class="card-meta">Image</span><h3>GPT Image</h3><p>고품질 이미지 생성 경로입니다. 설정과 사용 경로는 별도 이슈에서 확인합니다.</p></article>
+      </div>
+    </section>
+
+    <section aria-labelledby="kanban-title">
+      <h2 id="kanban-title">Kanban 스냅샷</h2>
+      <div class="kanban">
+        <article class="lane">
+          <div class="lane-head"><h3>Done</h3><span>완료</span></div>
+          <div class="issue-list">
+            <a class="issue" href="https://github.com/lucasung-debug/hermes-ops-dashboard/issues/1"><strong>#1 GitHub Projects 모바일 칸반보드 구성</strong><span>모바일 운영 보드 구성 완료</span></a>
+          </div>
+        </article>
+        <article class="lane">
+          <div class="lane-head"><h3>In Progress</h3><span>진행 중</span></div>
+          <div class="issue-list">
+            <a class="issue" href="https://github.com/lucasung-debug/hermes-ops-dashboard/issues/6"><strong>#6 VPS ↔ GitHub 역할표 동기화 스크립트</strong><span>역할표 스냅샷 동기화 작업</span></a>
+          </div>
+        </article>
+        <article class="lane">
+          <div class="lane-head"><h3>Blocked</h3><span>대기</span></div>
+          <div class="issue-list">
+            <a class="issue" href="https://github.com/lucasung-debug/hermes-ops-dashboard/issues/2"><strong>#2 Grok 검색 연동</strong><span>검색 경로 연결 필요</span></a>
+            <a class="issue" href="https://github.com/lucasung-debug/hermes-ops-dashboard/issues/3"><strong>#3 Google Antigravity CLI 검색 연동</strong><span>CLI 연결 필요</span></a>
+          </div>
+        </article>
+        <article class="lane">
+          <div class="lane-head"><h3>Ready</h3><span>착수 가능</span></div>
+          <div class="issue-list">
+            <a class="issue" href="https://github.com/lucasung-debug/hermes-ops-dashboard/issues/4"><strong>#4 GPT Image 고도 이미지 생성 경로 탐색</strong><span>고품질 이미지 경로 확인</span></a>
+            <a class="issue" href="https://github.com/lucasung-debug/hermes-ops-dashboard/issues/5"><strong>#5 Claude <code>-p</code> 과금 변경 대응 설계</strong><span>자동화 비용 변화 대응</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="rules-title">
+      <h2 id="rules-title">운영 규칙</h2>
+      <div class="rules">
+        <article class="rule"><strong>Codex</strong><p>코드 작성과 보안 관리를 맡습니다. 위험한 정리 작업이나 삭제는 명시 승인 없이 수행하지 않습니다.</p></article>
+        <article class="rule"><strong>Claude</strong><p>품질 관리, 아키텍처 최종 판단, QA 게이트 역할을 맡습니다.</p></article>
+        <article class="rule"><strong>MMX</strong><p>긴 컨텍스트 영어 분석과 대량 문서 요약에 우선 배치합니다.</p></article>
+        <article class="rule"><strong>Grok / Antigravity</strong><p>연결된 경우 검색 1순위입니다. 미연결 상태에서는 GitHub 이슈로 연결 작업을 추적합니다.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <nav class="bottom-bar" aria-label="모바일 빠른 작업">
+    <a href="https://github.com/users/lucasung-debug/projects/1">Project</a>
+    <a href="https://github.com/lucasung-debug/hermes-ops-dashboard">Repo</a>
+    <a href="https://github.com/lucasung-debug/hermes-ops-dashboard/issues">Issues</a>
+  </nav>
+</body>
+</html>
