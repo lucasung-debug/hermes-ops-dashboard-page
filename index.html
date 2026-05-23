@@ -3,37 +3,43 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>업무 자동화 포트폴리오</title>
+  <title>Vibe Coding Portfolio | AI Agent Projects by Lucas Sung</title>
+  <meta name="description" content="Lucas Sung의 바이브 코딩 포트폴리오. AI 에이전트와 함께 기획, 구현, 검증, 배포한 프로젝트를 GitHub evidence, live demos, README/specs, Knowledge OS, workflow automation 증거로 정리합니다.">
+  <link rel="canonical" href="https://lucasung-debug.github.io/hermes-ops-dashboard-page/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Vibe Coding Portfolio | AI Agent Projects by Lucas Sung">
+  <meta property="og:description" content="GitHub, live demos, README/specs, Knowledge OS evidence로 증명하는 AI agent vibe coding portfolio.">
+  <meta property="og:url" content="https://lucasung-debug.github.io/hermes-ops-dashboard-page/">
+  <meta property="og:site_name" content="Lucas Sung Vibe Coding Portfolio">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Vibe Coding Portfolio | AI Agent Projects by Lucas Sung">
+  <meta name="twitter:description" content="AI agents, GitHub evidence, live demos, Knowledge OS, workflow automation 중심의 바이브 코딩 포트폴리오.">
   <style>
     :root {
-      --bg: #0F172A;
-      --surface: #1E293B;
-      --text: #F8FAFC;
-      --text-2: #94A3B8;
-      --accent: #3B82F6;
-      --accent-hover: #2563EB;
-      --display-font: 'Inter', system-ui, sans-serif;
-      --body-font: 'Inter', system-ui, sans-serif;
-      --line: rgba(148, 163, 184, 0.24);
-      --surface-2: #172033;
+      --bg: #0f172a;
+      --surface: #172033;
+      --surface-2: #1e293b;
       --surface-3: #111827;
-      --ok: #22C55E;
-      --warn: #F59E0B;
-      --blocked: #F87171;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --line: rgba(148, 163, 184, 0.24);
+      --accent: #38bdf8;
+      --accent-2: #22c55e;
+      --warn: #f59e0b;
+      --danger: #f87171;
+      --font: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
     * { box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
-
     body {
       margin: 0;
       min-width: 320px;
       background: var(--bg);
       color: var(--text);
-      font-family: var(--body-font);
+      font-family: var(--font);
       font-size: 16px;
-      line-height: 1.55;
+      line-height: 1.58;
     }
 
     a { color: inherit; }
@@ -51,93 +57,64 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
+      gap: 18px;
       max-width: 1120px;
       margin: 0 auto;
       padding: 14px 18px;
     }
 
-    .brand {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-      min-width: 0;
-    }
-
-    .brand strong {
-      font-family: var(--display-font);
-      font-size: 17px;
-      letter-spacing: 0;
-    }
-
+    .brand { min-width: 0; }
+    .brand strong { display: block; font-size: 17px; }
     .brand span {
-      color: var(--text-2);
+      display: block;
+      color: var(--muted);
       font-size: 12px;
-      white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
-    .appbar-actions {
-      display: none;
-      gap: 10px;
-    }
+    .appbar-actions { display: none; gap: 10px; }
 
     main {
       max-width: 1120px;
       margin: 0 auto;
-      padding: 22px 18px 96px;
+      padding: 24px 18px 96px;
     }
+
+    section { margin-top: 32px; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      margin-bottom: 12px;
+      font-size: 33px;
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+    h2 { margin-bottom: 14px; font-size: 22px; letter-spacing: 0; }
+    h3 { margin-bottom: 8px; font-size: 17px; letter-spacing: 0; }
 
     .hero {
       display: grid;
-      gap: 18px;
-      padding: 22px;
+      gap: 20px;
+      padding: 24px;
       border: 1px solid var(--line);
       border-radius: 8px;
-      background: linear-gradient(180deg, var(--surface), var(--surface-2));
+      background: linear-gradient(180deg, var(--surface-2), var(--surface));
     }
 
     .eyebrow {
-      margin: 0 0 8px;
+      margin-bottom: 8px;
       color: var(--accent);
       font-size: 13px;
-      font-weight: 700;
+      font-weight: 800;
     }
 
-    h1, h2, h3, p { margin-top: 0; }
-
-    h1 {
-      margin-bottom: 10px;
-      font-family: var(--display-font);
-      font-size: 34px;
-      line-height: 1.05;
-      letter-spacing: 0;
-    }
-
-    h2 {
-      margin-bottom: 14px;
-      font-size: 21px;
-      letter-spacing: 0;
-    }
-
-    h3 {
-      margin-bottom: 8px;
-      font-size: 16px;
-      letter-spacing: 0;
-    }
-
-    .lead {
-      margin-bottom: 0;
-      color: var(--text-2);
-      font-size: 16px;
-    }
-
-    .section-lead {
-      margin: -4px 0 16px;
-      color: var(--text-2);
+    .lead, .section-lead {
+      color: var(--muted);
       font-size: 15px;
     }
+    .lead { margin-bottom: 0; font-size: 16px; }
+    .section-lead { margin: -4px 0 16px; }
 
     .status-panel {
       display: grid;
@@ -145,182 +122,67 @@
       align-content: start;
     }
 
-    .status-strip {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 10px;
-      margin-bottom: 18px;
-    }
-
-    .status-strip .button {
-      justify-content: flex-start;
-      gap: 10px;
-      min-height: 48px;
-    }
-
-    .button-label {
-      display: block;
-      color: var(--text);
-      font-size: 14px;
-      line-height: 1.2;
-    }
-
-    .button-hint {
-      display: block;
-      color: rgba(248, 250, 252, 0.72);
-      font-size: 12px;
-      font-weight: 600;
-      line-height: 1.2;
-    }
-
-    .status-row {
-      min-height: 58px;
-      padding: 12px 14px;
+    .status-row, .card, .rule, .faq-item {
       border: 1px solid var(--line);
       border-radius: 8px;
-      background: rgba(15, 23, 42, 0.58);
+      background: var(--surface);
     }
 
+    .status-row { padding: 12px 14px; }
     .status-row span {
       display: block;
-      color: var(--text-2);
+      color: var(--muted);
       font-size: 12px;
     }
-
     .status-row strong {
       display: block;
       margin-top: 2px;
       font-size: 16px;
     }
 
-    section { margin-top: 30px; }
-
-    .quick-actions {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 10px;
-    }
-
     .button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 46px;
-      padding: 11px 14px;
+      min-height: 44px;
+      padding: 10px 14px;
       border: 1px solid var(--line);
       border-radius: 8px;
-      background: var(--surface);
+      background: var(--surface-3);
       color: var(--text);
-      font-weight: 700;
+      font-weight: 800;
       text-decoration: none;
     }
-
     .button.primary {
       border-color: var(--accent);
       background: var(--accent);
-      color: #FFFFFF;
+      color: #082f49;
     }
-
-    .button:hover,
-    .button:focus-visible {
-      border-color: var(--accent-hover);
-      background: var(--accent-hover);
-      color: #FFFFFF;
+    .button:hover, .button:focus-visible {
+      border-color: var(--accent-2);
       outline: none;
     }
 
-    .button.secondary {
-      background: var(--surface-3);
-    }
-
-    .grid {
+    .quick-actions, .grid, .case-grid, .rules, .faq-list {
       display: grid;
-      grid-template-columns: 1fr;
       gap: 12px;
     }
 
-    .card {
-      min-height: 128px;
-      padding: 16px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: var(--surface);
-    }
-
-    .card p {
+    .quick-actions { grid-template-columns: 1fr; }
+    .card { min-height: 132px; padding: 16px; }
+    .card p, .rule p, .faq-item p {
       margin-bottom: 0;
-      color: var(--text-2);
+      color: var(--muted);
       font-size: 14px;
     }
 
     .card ul {
       margin: 10px 0 0;
       padding-left: 18px;
-      color: var(--text-2);
+      color: var(--muted);
       font-size: 14px;
     }
-
     .card li + li { margin-top: 6px; }
-
-    .step-card {
-      min-height: 150px;
-    }
-
-    .step-index {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 30px;
-      height: 30px;
-      margin-bottom: 12px;
-      border: 1px solid rgba(59, 130, 246, 0.56);
-      border-radius: 999px;
-      background: rgba(59, 130, 246, 0.14);
-      color: var(--text);
-      font-size: 13px;
-      font-weight: 800;
-    }
-
-    .case-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
-    }
-
-    .chip-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .chip {
-      display: inline-flex;
-      align-items: center;
-      min-height: 36px;
-      padding: 7px 11px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: var(--surface);
-      color: var(--text);
-      font-size: 13px;
-      font-weight: 800;
-    }
-
-    .focus-card {
-      display: grid;
-      gap: 12px;
-      min-height: 158px;
-    }
-
-    .focus-card .next-step {
-      align-self: end;
-      margin: 0;
-      padding-top: 10px;
-      border-top: 1px solid var(--line);
-      color: var(--text);
-      font-size: 13px;
-      font-weight: 700;
-    }
 
     .card-meta {
       display: inline-flex;
@@ -330,185 +192,47 @@
       padding: 3px 9px;
       border: 1px solid var(--line);
       border-radius: 999px;
-      color: var(--text-2);
+      color: var(--muted);
       font-size: 12px;
-      font-weight: 700;
-    }
-
-    .kanban {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
-    }
-
-    .lane {
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: var(--surface-3);
-      overflow: hidden;
-    }
-
-    .lane-head {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 13px 14px;
-      border-bottom: 1px solid var(--line);
-      background: rgba(30, 41, 59, 0.72);
-    }
-
-    .lane-head span {
-      color: var(--text-2);
-      font-size: 12px;
-      font-weight: 700;
-    }
-
-    .issue-list {
-      display: grid;
-      gap: 10px;
-      padding: 12px;
-    }
-
-    .issue {
-      display: block;
-      min-height: 52px;
-      padding: 11px 12px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: var(--surface);
-      text-decoration: none;
-    }
-
-    .issue strong {
-      display: block;
-      margin-bottom: 4px;
-      font-size: 14px;
-    }
-
-    .issue span {
-      color: var(--text-2);
-      font-size: 13px;
-    }
-
-    .rules {
-      display: grid;
-      gap: 10px;
-    }
-
-    .rule {
-      padding: 14px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: var(--surface);
-    }
-
-    .rule strong { display: block; margin-bottom: 5px; }
-    .rule p { margin-bottom: 0; color: var(--text-2); }
-
-    .command-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 10px;
-    }
-
-    .command-chip {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      min-height: 48px;
-      padding: 11px 13px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: var(--surface-3);
-      color: var(--text);
-      font: inherit;
       font-weight: 800;
-      text-align: left;
-      cursor: pointer;
-      transition: border-color 160ms ease, background 160ms ease, color 160ms ease;
-    }
-
-    .command-chip:hover,
-    .command-chip:focus-visible,
-    .command-chip.copied {
-      border-color: var(--ok);
-      background: rgba(34, 197, 94, 0.16);
-      outline: none;
-    }
-
-    .command-chip code {
-      color: var(--text);
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: 14px;
-      white-space: normal;
-      word-break: keep-all;
-      overflow-wrap: anywhere;
-    }
-
-    .command-status {
-      min-height: 44px;
-      margin: 12px 0 0;
-      padding: 10px 12px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: rgba(15, 23, 42, 0.58);
-      color: var(--text-2);
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    .command-status.ready {
-      border-color: rgba(34, 197, 94, 0.56);
-      color: var(--text);
-    }
-
-    .execution-note {
-      display: grid;
-      gap: 5px;
-      margin: 12px 0 0;
-      padding: 12px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: var(--surface-3);
-      color: var(--text-2);
-      font-size: 13px;
-    }
-
-    .execution-note strong {
-      color: var(--text);
-    }
-
-    .deploy-card {
-      display: grid;
-      gap: 12px;
-      padding: 16px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: var(--surface);
-    }
-
-    .deploy-card p {
-      margin-bottom: 0;
-      color: var(--text-2);
-      font-size: 14px;
-    }
-
-    .deploy-card .quick-actions {
-      margin-top: 2px;
     }
 
     .snapshot {
       display: inline-flex;
       align-items: center;
       min-height: 30px;
-      margin-top: 14px;
+      margin-top: 16px;
       padding: 4px 10px;
       border: 1px solid var(--line);
       border-radius: 999px;
-      color: var(--text-2);
+      color: var(--muted);
       font-size: 12px;
-      font-weight: 700;
+      font-weight: 800;
+    }
+
+    .rule, .faq-item { padding: 14px; }
+    .rule strong, .faq-item strong {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .tool-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 5px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
     }
 
     .bottom-bar {
@@ -525,247 +249,271 @@
       background: rgba(15, 23, 42, 0.96);
       backdrop-filter: blur(14px);
     }
-
     .bottom-bar a {
       min-height: 44px;
       padding: 9px 8px;
       border: 1px solid var(--line);
       border-radius: 8px;
       background: var(--surface);
-      color: var(--text);
       font-size: 13px;
-      font-weight: 700;
+      font-weight: 800;
       text-align: center;
       text-decoration: none;
     }
 
     @media (min-width: 700px) {
       .appbar-actions { display: flex; }
-      main { padding: 30px 24px 56px; }
+      main { padding: 32px 24px 64px; }
       .hero { grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.65fr); padding: 30px; }
-      h1 { font-size: 46px; }
-      .status-strip { grid-template-columns: repeat(3, 1fr); }
+      h1 { font-size: 44px; }
       .quick-actions { grid-template-columns: repeat(4, 1fr); }
       .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .case-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-      .kanban { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .command-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .case-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .bottom-bar { display: none; }
     }
 
     @media (min-width: 1040px) {
       .grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-      .kanban { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-      .command-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
     }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://lucasung-debug.github.io/hermes-ops-dashboard-page/#website",
+        "url": "https://lucasung-debug.github.io/hermes-ops-dashboard-page/",
+        "name": "Vibe Coding Portfolio | AI Agent Projects by Lucas Sung",
+        "description": "AI agents, GitHub evidence, live demos, README/specs, Knowledge OS evidence, and workflow automation projects by Lucas Sung.",
+        "inLanguage": ["ko", "en"],
+        "author": { "@id": "https://lucasung-debug.github.io/hermes-ops-dashboard-page/#person" }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://lucasung-debug.github.io/hermes-ops-dashboard-page/#person",
+        "name": "Lucas Sung",
+        "url": "https://github.com/lucasung-debug",
+        "sameAs": ["https://github.com/lucasung-debug"],
+        "knowsAbout": ["AI agents", "vibe coding", "workflow automation", "Knowledge OS", "GitHub portfolio", "technical documentation"]
+      },
+      {
+        "@type": "ItemList",
+        "@id": "https://lucasung-debug.github.io/hermes-ops-dashboard-page/#flagship-projects",
+        "name": "Flagship vibe coding evidence projects",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "hr-documents", "url": "https://github.com/lucasung-debug/hr-documents" },
+          { "@type": "ListItem", "position": 2, "name": "nerdspecs", "url": "https://github.com/lucasung-debug/nerdspecs" },
+          { "@type": "ListItem", "position": 3, "name": "hermes-ops-dashboard-page", "url": "https://github.com/lucasung-debug/hermes-ops-dashboard-page" },
+          { "@type": "ListItem", "position": 4, "name": "Video Knowledge Ingestion Pipeline", "url": "https://lucasung-debug.github.io/hermes-ops-dashboard-page/#video-knowledge-ingestion" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://lucasung-debug.github.io/hermes-ops-dashboard-page/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "이 사이트는 어떤 포트폴리오인가요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "이 사이트는 Lucas Sung의 Vibe Coding / GitHub-connected portfolio입니다. AI 에이전트와 함께 만든 프로젝트를 GitHub 저장소, live demo, README, spec, Knowledge OS evidence로 검증 가능하게 보여줍니다." }
+          },
+          {
+            "@type": "Question",
+            "name": "이 사이트는 경력 포트폴리오인가요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "아닙니다. 이 페이지는 작성형 커리어 포트폴리오가 아니라 GitHub evidence portfolio입니다. 경력 포트폴리오로 연결되기 전, 실제 코드와 배포 증거를 먼저 제시하는 표면입니다." }
+          },
+          {
+            "@type": "Question",
+            "name": "대표 프로젝트는 무엇인가요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "대표 프로젝트는 hr-documents, nerdspecs, hermes-ops-dashboard-page, Video Knowledge Ingestion Pipeline입니다. 각각 HR 운영 자동화, AI 프로젝트 문서화, AI agent operations dashboard, Knowledge OS evidence ingestion을 증명합니다." }
+          },
+          {
+            "@type": "Question",
+            "name": "AEO/GEO를 위해 어떤 구조를 갖추나요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "페이지는 명확한 프로젝트 taxonomy, FAQ, JSON-LD, llms.txt, canonical URL, Open Graph/Twitter metadata, demos, screenshots/videos, project pages를 기준으로 AI answer engine이 인용하기 쉬운 증거 구조를 갖춥니다." }
+          },
+          {
+            "@type": "Question",
+            "name": "어떤 저장소는 낮게 노출하거나 제외하나요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "clabs는 fork/contribution experiment로 낮게 노출합니다. Lovable/template acquisition repositories와 private/sensitive experimental bot repositories는 대표 증거에서 제외합니다." }
+          },
+          {
+            "@type": "Question",
+            "name": "Knowledge OS evidence란 무엇인가요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Knowledge OS evidence는 프로젝트, README/spec, 영상/스크린샷, transcript, metadata, claims, agent actions를 연결해 AI가 만든 결과물을 사람이 검증 가능한 지식 기록으로 남기는 구조입니다." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <header class="appbar">
     <div class="appbar-inner">
       <div class="brand">
-        <strong>업무 자동화 포트폴리오</strong>
-        <span>AI를 활용해 반복 업무를 실제 도구로 바꿉니다</span>
+        <strong>Vibe Coding Portfolio</strong>
+        <span>GitHub 연결 바이브 코딩 포트폴리오</span>
       </div>
       <nav class="appbar-actions" aria-label="빠른 이동">
-        <a class="button primary" href="#owned-work">Cases</a>
-        <a class="button" href="#workflow">Process</a>
-        <a class="button" href="#small-tools">Tools</a>
-        <a class="button" href="#contributions">Contributions</a>
+        <a class="button primary" href="#flagship">Projects</a>
+        <a class="button" href="#role">Role</a>
+        <a class="button" href="#aeo-geo">AEO/GEO</a>
+        <a class="button" href="#faq">FAQ</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <nav class="status-strip" aria-label="포트폴리오 빠른 작업">
-      <a class="button primary" href="#owned-work"><span><span class="button-label">동작 사례 보기</span><span class="button-hint">4가지 공개 사례</span></span></a>
-      <a class="button" href="#workflow"><span><span class="button-label">작업 방식 보기</span><span class="button-hint">기획부터 배포까지</span></span></a>
-      <a class="button" href="#small-tools"><span><span class="button-label">작은 도구 보기</span><span class="button-hint">자동화 실험 목록</span></span></a>
-    </nav>
-
     <section class="hero" aria-labelledby="page-title">
       <div>
-        <p class="eyebrow">업무 자동화 포트폴리오</p>
-        <h1 id="page-title">AI를 활용해 반복 업무를 실제로 작동하는 자동화 도구로 만듭니다.</h1>
-        <p class="lead">AI 도구를 활용해 운영, 문서, 콘텐츠 업무의 반복 작업을 실제 웹앱과 자동화 흐름으로 바꿉니다. 아이디어 정리부터 구현, 검증, 배포까지 혼자서 끝냅니다.</p>
-        <span class="snapshot">Live URL · 공개 저장소 · 동작 확인</span>
+        <p class="eyebrow">GitHub 연결 바이브 코딩 포트폴리오</p>
+        <h1 id="page-title">AI 에이전트와 함께 기획·구현·검증·배포한 프로젝트를 GitHub와 데모로 증명합니다.</h1>
+        <p class="lead">이 페이지는 GitHub 저장소, live demos, README/specs, Knowledge OS evidence, AEO/GEO readiness를 한곳에 모아 AI agent 기반 프로젝트 실행력을 검증 가능한 형태로 보여줍니다.</p>
+        <span class="snapshot">Canonical URL · GitHub Evidence · Live Demos · llms.txt</span>
       </div>
-      <div class="status-panel" aria-label="운영 상태 요약">
-        <div class="status-row"><span>포지션</span><strong>업무 자동화 빌더</strong></div>
-        <div class="status-row"><span>방식</span><strong>기획 · 구현 · 검증 · 배포</strong></div>
-        <div class="status-row"><span>대표 증거</span><strong>실제 동작하는 자동화 사례</strong></div>
+      <div class="status-panel" aria-label="포트폴리오 요약">
+        <div class="status-row"><span>Brand</span><strong>Vibe Coding Portfolio</strong></div>
+        <div class="status-row"><span>Proof Surface</span><strong>GitHub · Demo · Spec · Evidence</strong></div>
+        <div class="status-row"><span>Scope</span><strong>AI Agent Projects + Knowledge OS</strong></div>
       </div>
     </section>
 
-    <section aria-labelledby="build-title">
-      <h2 id="build-title">무엇을 만드는가</h2>
-      <p class="section-lead">반복되는 운영 업무를 사람이 다시 쓸 수 있는 화면, 파일, 기록, 배포 결과로 정리합니다.</p>
+    <section id="role" aria-labelledby="role-title">
+      <h2 id="role-title">이 포트폴리오의 역할</h2>
+      <p class="section-lead">이 저장소는 작성형 커리어 포트폴리오가 아닙니다. 커리어 포트폴리오로 연결되기 전, GitHub와 배포 증거를 먼저 제시하는 public evidence surface입니다.</p>
       <div class="grid">
-        <article class="card"><span class="card-meta">Automation</span><h3>업무 자동화</h3><p>반복 업무를 웹앱과 자동화 흐름으로 바꿈</p></article>
-        <article class="card"><span class="card-meta">Documents</span><h3>문서·콘텐츠 흐름</h3><p>전자서명, PDF, 채용 포스터, 뉴스레터처럼 반복되는 산출물을 자동화</p></article>
-        <article class="card"><span class="card-meta">Proof</span><h3>검증 가능한 배포</h3><p>실제 URL, 공개 저장소, 동작 확인으로 결과를 증명</p></article>
+        <article class="card"><span class="card-meta">Evidence</span><h3>코드 증거</h3><p>저장소, README, spec, commit-ready 정적 페이지로 AI와 함께 만든 결과를 추적합니다.</p></article>
+        <article class="card"><span class="card-meta">Demo</span><h3>동작 증거</h3><p>live demo, GitHub Pages, Vercel 배포 URL을 통해 결과물이 실제로 열리는지 확인합니다.</p></article>
+        <article class="card"><span class="card-meta">Knowledge OS</span><h3>지식 증거</h3><p>프로젝트 설명, 영상/스크린샷, transcript, claims, agent actions를 연결할 기반을 둡니다.</p></article>
+        <article class="card"><span class="card-meta">AEO/GEO</span><h3>인용 준비</h3><p>FAQ, JSON-LD, llms.txt, canonical metadata로 AI answer engine이 읽기 쉬운 구조를 만듭니다.</p></article>
       </div>
     </section>
 
-    <section id="workflow" aria-labelledby="workflow-title">
-      <h2 id="workflow-title">작업 방식</h2>
-      <div class="grid">
-        <article class="card step-card"><span class="step-index">1</span><h3>문제 정리</h3><p>반복되는 수작업, 필요한 입력, 최종 산출물, 담당자가 확인해야 할 상태를 먼저 정리합니다.</p></article>
-        <article class="card step-card"><span class="step-index">2</span><h3>흐름 설계</h3><p>화면, 문서, 저장 위치, 알림, 다운로드까지 실제 업무가 지나가는 순서를 설계합니다.</p></article>
-        <article class="card step-card"><span class="step-index">3</span><h3>AI 도구 활용 구현</h3><p>AI 도구를 활용해 웹앱, 자동화 스크립트, 문서 생성 흐름을 빠르게 만들고 직접 다듬습니다.</p></article>
-        <article class="card step-card"><span class="step-index">4</span><h3>동작 확인</h3><p>핵심 링크, 파일 생성, 외부 연동, 공개 가능한 정보 범위를 실제 실행 기준으로 확인합니다.</p></article>
-        <article class="card step-card"><span class="step-index">5</span><h3>배포와 운영</h3><p>Vercel, GitHub Pages, 공개 저장소처럼 확인 가능한 형태로 배포하고 이후 수정 흐름까지 관리합니다.</p></article>
-      </div>
-    </section>
-
-    <section id="owned-work" aria-labelledby="owned-work-title">
-      <h2 id="owned-work-title">직접 만들고 운영하는 것</h2>
-      <p class="section-lead">실제로 동작하는 4가지 사례입니다. 각 사례는 문제, 해법, 내 역할, 상태를 기준으로 정리했습니다.</p>
+    <section id="flagship" aria-labelledby="flagship-title">
+      <h2 id="flagship-title">대표 증거 프로젝트</h2>
+      <p class="section-lead">대표 프로젝트는 단순 아이디어가 아니라 문제 정의, AI agent 실행, 저장소 또는 데모, 설명 가능한 산출물을 기준으로 노출합니다.</p>
       <div class="case-grid">
         <article class="card">
-          <span class="card-meta">Live / Public · hr-documents</span>
-          <h3>HR 온보딩 자동화 시스템</h3>
-          <p>신규 입사자 온보딩 서류를 전자서명·PDF·Sheets·이메일 흐름으로 자동화한 HR 운영 시스템입니다.</p>
+          <span class="card-meta">Primary · hr-documents</span>
+          <h3>Google Workspace/Slack HR Onboarding Operations Hub</h3>
+          <p>HR 온보딩 문서, 전자서명, PDF, Sheets 기록, 알림 흐름을 묶어 workflow automation proof로 제시하는 프로젝트입니다.</p>
           <ul>
-            <li><strong>문제:</strong> 신규 입사자 온보딩에서 전자서명, PDF 생성, 진행 상태 기록, HR 담당자 이메일 발송을 수동으로 처리해야 했습니다.</li>
-            <li><strong>해법:</strong> 7종 HR 문서에 전자서명을 받고, PDF를 생성한 뒤, Google Sheets에 상태를 기록하고 이메일 발송까지 이어지는 웹앱 워크플로우를 만들었습니다.</li>
-            <li><strong>내 역할:</strong> 문제 정의, 화면 흐름, 문서 처리 로직, Google 연동, 이메일 발송, 배포까지 전체 흐름을 설계하고 구현했습니다.</li>
+            <li><strong>증거 축:</strong> HR operations, Google Workspace, Slack-ready workflow, document automation.</li>
+            <li><strong>포트폴리오 의미:</strong> 실제 운영 문제를 AI-assisted implementation으로 자동화한 대표 사례입니다.</li>
           </ul>
-          <p><a class="button primary" href="https://hr-documents.vercel.app">Live</a> <a class="button" href="https://github.com/lucasung-debug/hr-documents">Repo</a></p>
+          <div class="tool-row">
+            <a class="button primary" href="https://hr-documents.vercel.app">Live</a>
+            <a class="button" href="https://github.com/lucasung-debug/hr-documents">Repo</a>
+          </div>
         </article>
+
         <article class="card">
-          <span class="card-meta">Live / Public · ottogi-recruit</span>
-          <h3>채용 콘텐츠 자동화 도구</h3>
-          <p>Google Sheets의 채용 데이터를 포스터 이미지로 바꾸는 채용 콘텐츠 자동화 도구입니다.</p>
+          <span class="card-meta">Primary · nerdspecs</span>
+          <h3>AI-built Project Explanation / README / Spec Tool</h3>
+          <p>AI로 빠르게 만든 프로젝트를 README, spec, 설명 가능한 evidence로 바꾸는 자기증명형 포트폴리오 도구입니다.</p>
           <ul>
-            <li><strong>문제:</strong> 채용공고 포스터를 만들 때 직무 정보 확인, 문구 조정, 로고 삽입, 이미지 출력 작업이 반복적으로 필요했습니다.</li>
-            <li><strong>해법:</strong> Google Sheets 데이터를 기반으로 채용공고 정보를 불러오고, 포스터 화면에서 제목과 로고를 조정한 뒤 PNG로 다운로드할 수 있는 웹앱을 만들었습니다.</li>
-            <li><strong>내 역할:</strong> 채용공고 생성 흐름, Google Sheets 연동, 포스터 화면, PNG 다운로드 흐름을 설계하고 구현했습니다.</li>
+            <li><strong>증거 축:</strong> README generation, spec generation, project explanation, developer tool.</li>
+            <li><strong>포트폴리오 의미:</strong> 바이브 코딩 결과물을 사람이 검증 가능한 문서로 환원합니다.</li>
           </ul>
-          <p><a class="button primary" href="https://ottogi-recruit.vercel.app">Live</a> <a class="button" href="https://github.com/lucasung-debug/ottogi-recruit">Repo</a></p>
+          <div class="tool-row">
+            <a class="button primary" href="https://lucasung-debug.github.io/nerdspecs/">Live</a>
+            <a class="button" href="https://github.com/lucasung-debug/nerdspecs">Repo</a>
+          </div>
         </article>
+
         <article class="card">
-          <span class="card-meta">Case Study / Public Mirror · hermes-ops-dashboard</span>
-          <h3>AI 도구 운영 대시보드</h3>
-          <p>여러 AI 도구의 작업을 한 화면에서 추적하고, 외부에 공개 가능한 부분만 따로 보여주는 운영 대시보드입니다.</p>
+          <span class="card-meta">Primary · hermes-ops-dashboard-page</span>
+          <h3>AI Agent Operations Dashboard Public Mirror</h3>
+          <p>AI agent 작업 운영 대시보드의 공개 가능한 정적 mirror입니다. private source의 민감 맥락은 제외하고 public evidence surface만 유지합니다.</p>
           <ul>
-            <li><strong>문제:</strong> AI 도구를 여러 개 써서 작업할 때, 어떤 도구가 어떤 역할을 맡고 있고 어떤 작업이 진행 중인지 한눈에 보기 어려웠습니다.</li>
-            <li><strong>해법:</strong> GitHub Issues/Projects를 작업 보드로 쓰고, 공개 가능한 정적 화면만 GitHub Pages mirror로 배포하는 Hermes 운영 대시보드를 만들었습니다.</li>
-            <li><strong>공개 범위:</strong> 원본에는 개인 작업 맥락과 운영 메모가 포함될 수 있어 private으로 유지하고, 공개 가능한 정적 화면만 민감 정보 스캔 후 public Pages mirror로 배포합니다.</li>
-            <li><strong>내 역할:</strong> 작업 방식 설계, Codex 구현 지시, 검증 기준 수립, 배포 전 동작 확인, 민감 정보 스캔, 공개 미러 배포와 라이브 검증까지 관리했습니다.</li>
+            <li><strong>증거 축:</strong> AI agent operations, GitHub Pages, sanitized public mirror, verification workflow.</li>
+            <li><strong>포트폴리오 의미:</strong> 이 페이지 자체가 공개 표면 안정화와 AEO/GEO 구조화의 증거입니다.</li>
           </ul>
-          <p><a class="button primary" href="https://lucasung-debug.github.io/hermes-ops-dashboard-page/">Live</a> <a class="button" href="https://github.com/lucasung-debug/hermes-ops-dashboard-page">Repo</a></p>
+          <div class="tool-row">
+            <a class="button primary" href="https://lucasung-debug.github.io/hermes-ops-dashboard-page/">Live</a>
+            <a class="button" href="https://github.com/lucasung-debug/hermes-ops-dashboard-page">Repo</a>
+          </div>
         </article>
-        <article class="card">
-          <span class="card-meta">Public / NPM / Live Demo · nerdspecs</span>
-          <h3>AI 프로젝트 문서화 도구</h3>
-          <p>AI가 빠르게 만든 프로젝트를, 사람이 나중에 읽을 수 있는 README와 명세로 자동 정리해 주는 개발자용 도구입니다.</p>
+
+        <article class="card" id="video-knowledge-ingestion">
+          <span class="card-meta">Primary · Video Knowledge Ingestion Pipeline</span>
+          <h3>YouTube/Transcript/Metadata to Knowledge OS</h3>
+          <p>영상, transcript, metadata를 Knowledge OS evidence, claims, agent actions로 변환하는 파이프라인 후보입니다.</p>
           <ul>
-            <li><strong>문제:</strong> AI로 만든 프로젝트는 빠르게 만들어지지만, 나중에 사람이 구조와 의도를 이해하기 어렵습니다.</li>
-            <li><strong>해법:</strong> AI로 만든 프로젝트를 사람이 읽을 수 있는 설명, README, 명세 문서로 정리하는 도구를 만들었습니다.</li>
-            <li><strong>내 역할:</strong> 문제 정의, 개발자용 CLI 도구 구조, 문서 생성 흐름, 다국어 README, NPM 배포 흐름을 설계하고 구현했습니다.</li>
+            <li><strong>증거 축:</strong> YouTube ingestion, transcript parsing, metadata capture, claims database, agent action records.</li>
+            <li><strong>포트폴리오 의미:</strong> 콘텐츠를 단순 아카이브가 아니라 검증 가능한 지식 증거로 바꾸는 방향성을 보여줍니다.</li>
           </ul>
-          <p><a class="button primary" href="https://lucasung-debug.github.io/nerdspecs/">Live</a> <a class="button" href="https://github.com/lucasung-debug/nerdspecs">Repo</a></p>
+          <div class="tool-row">
+            <span class="tag">Knowledge OS</span>
+            <span class="tag">Evidence DB</span>
+            <span class="tag">Pipeline</span>
+          </div>
         </article>
       </div>
     </section>
 
-    <section id="small-tools" aria-labelledby="small-tools-title">
-      <h2 id="small-tools-title">작은 도구 & 자동화</h2>
+    <section id="supporting" aria-labelledby="supporting-title">
+      <h2 id="supporting-title">지원 도구와 확장 후보</h2>
       <div class="rules">
-        <article class="rule"><strong>hr-newsletter-automation</strong><p>HR 뉴스와 자료를 자동 정리해 뉴스레터와 아카이브 형태로 발행하는 Python 기반 자동화입니다.</p></article>
-        <article class="rule"><strong>HTMLvault</strong><p>AI 리서치 결과와 긴 답변을 HTML 카드로 저장하고, 출처와 근거 관계를 내 컴퓨터에서 관리하려는 지식관리 실험입니다.</p></article>
-        <article class="rule"><strong>mnemo-hook</strong><p>Claude Code 세션 사이의 맥락 손실을 줄이기 위한 기억 보조 도구입니다.</p></article>
-        <article class="rule"><strong>hr-ops-portfolio</strong><p>HR 운영 경험과 포트폴리오 자료를 정리한 별도 개인 브랜딩/도메인 페이지입니다.</p></article>
+        <article class="rule"><strong>HTMLvault</strong><p>AI 리서치 결과와 긴 답변을 HTML evidence card로 저장하고, 출처와 주장 관계를 로컬 지식관리 구조로 관리하는 도구 후보입니다.</p></article>
+        <article class="rule"><strong>mnemo-hook</strong><p>Claude Code 및 agent 세션 사이의 맥락 손실을 줄이기 위한 session memory tooling입니다.</p></article>
+        <article class="rule"><strong>ottogi-recruit</strong><p>Google Sheets 채용 데이터를 포스터/콘텐츠 산출물로 바꾸는 recruitment content automation 사례입니다.</p></article>
+        <article class="rule"><strong>hr-newsletter-automation</strong><p>HR 뉴스와 자료를 수집, 정리, 발행 가능한 newsletter/archive 형태로 자동화하는 Python workflow입니다.</p></article>
+        <article class="rule"><strong>chartmind-ai</strong><p>AI 기반 주식 차트 분석 보조 도구 후보입니다. 재무/차트 해석을 설명 가능한 웹 인터페이스로 발전시키는 실험입니다.</p></article>
+        <article class="rule"><strong>moneyfit</strong><p>SMS 기록, 투자 추적, 세금 관리, AI 조언을 묶는 personal finance automation 후보입니다.</p></article>
       </div>
     </section>
 
-    <section id="developing-projects" aria-labelledby="developing-projects-title">
-      <h2 id="developing-projects-title">발전 중인 프로젝트</h2>
+    <section id="aeo-geo" aria-labelledby="aeo-geo-title">
+      <h2 id="aeo-geo-title">AEO/GEO 증거 구조</h2>
+      <p class="section-lead">AI 검색과 answer engine이 이 페이지를 인용할 수 있도록 사람용 섹션과 기계판독 구조를 함께 둡니다.</p>
+      <div class="grid">
+        <article class="card"><span class="card-meta">FAQ</span><h3>질문-답변 인용 단위</h3><p>AI answer engine이 짧게 인용할 수 있는 5-6개 핵심 Q&A를 유지합니다.</p></article>
+        <article class="card"><span class="card-meta">JSON-LD</span><h3>구조화 데이터</h3><p>WebSite, Person, ItemList, FAQPage schema를 head에 포함합니다.</p></article>
+        <article class="card"><span class="card-meta">llms.txt</span><h3>LLM용 요약 파일</h3><p>canonical URL, 대표 프로젝트, 포함/제외 규칙을 별도 텍스트로 제공합니다.</p></article>
+        <article class="card"><span class="card-meta">Evidence</span><h3>데모와 프로젝트 페이지</h3><p>live demos, screenshots/videos, README/specs, project pages를 연결하는 구조를 기준으로 확장합니다.</p></article>
+      </div>
+    </section>
+
+    <section id="exposure" aria-labelledby="exposure-title">
+      <h2 id="exposure-title">낮은 노출/제외 원칙</h2>
       <div class="rules">
-        <article class="rule"><strong>chartmind-ai</strong><p>AI 주식 차트 분석 웹앱으로 발전 중입니다. 단기/중기/장기 흐름을 읽는 보조 도구를 목표로 개발하고 있습니다.</p></article>
-        <article class="rule"><strong>moneyfit</strong><p>SMS 기록, 투자 추적, 세금 관리, AI 조언을 한 곳에서 다루는 개인 금융 관리 앱으로 발전 중입니다.</p></article>
+        <article class="rule"><strong>clabs</strong><p>대표작이 아니라 fork/contribution experiment로 낮게 노출합니다. 핵심 증거 프로젝트 목록에는 넣지 않습니다.</p></article>
+        <article class="rule"><strong>Lovable/template acquisition repos</strong><p>템플릿 확보나 실험성 acquisition 성격의 저장소는 대표 증거에서 제외합니다.</p></article>
+        <article class="rule"><strong>Private/sensitive experimental bot repositories</strong><p>이 페이지의 vibe coding evidence taxonomy에서 제외합니다.</p></article>
       </div>
     </section>
 
-    <section id="contributions" aria-labelledby="contributions-title">
-      <h2 id="contributions-title">기여 / 포크 실험</h2>
-      <p class="section-lead">원본 Claude Code GUI 프로젝트를 포크해 일부 흐름을 검토한 기여 기록입니다. 대표작이 아니라 기여/포크 실험입니다.</p>
-      <p><a class="button" href="https://github.com/lucasung-debug/clabs">clabs GitHub에서 보기</a></p>
+    <section id="faq" aria-labelledby="faq-title">
+      <h2 id="faq-title">FAQ</h2>
+      <div class="faq-list">
+        <article class="faq-item"><strong>이 사이트는 어떤 포트폴리오인가요?</strong><p>Lucas Sung의 Vibe Coding / GitHub-connected portfolio입니다. AI 에이전트와 함께 만든 프로젝트를 GitHub 저장소, live demo, README, spec, Knowledge OS evidence로 검증 가능하게 보여줍니다.</p></article>
+        <article class="faq-item"><strong>이 사이트는 경력 포트폴리오인가요?</strong><p>아닙니다. 이 페이지는 작성형 커리어 포트폴리오가 아니라 GitHub evidence portfolio입니다. 경력 포트폴리오로 연결되기 전, 실제 코드와 배포 증거를 먼저 제시하는 표면입니다.</p></article>
+        <article class="faq-item"><strong>대표 프로젝트는 무엇인가요?</strong><p>대표 프로젝트는 hr-documents, nerdspecs, hermes-ops-dashboard-page, Video Knowledge Ingestion Pipeline입니다. 각각 HR 운영 자동화, AI 프로젝트 문서화, AI agent operations dashboard, Knowledge OS evidence ingestion을 증명합니다.</p></article>
+        <article class="faq-item"><strong>AEO/GEO를 위해 어떤 구조를 갖추나요?</strong><p>명확한 프로젝트 taxonomy, FAQ, JSON-LD, llms.txt, canonical URL, Open Graph/Twitter metadata, demos, screenshots/videos, project pages를 기준으로 AI answer engine이 인용하기 쉬운 구조를 갖춥니다.</p></article>
+        <article class="faq-item"><strong>어떤 저장소는 낮게 노출하거나 제외하나요?</strong><p>clabs는 fork/contribution experiment로 낮게 노출합니다. Lovable/template acquisition repositories와 private/sensitive experimental bot repositories는 대표 증거에서 제외합니다.</p></article>
+        <article class="faq-item"><strong>Knowledge OS evidence란 무엇인가요?</strong><p>프로젝트, README/spec, 영상/스크린샷, transcript, metadata, claims, agent actions를 연결해 AI가 만든 결과물을 사람이 검증 가능한 지식 기록으로 남기는 구조입니다.</p></article>
+      </div>
     </section>
 
     <section aria-labelledby="contact-title">
-      <h2 id="contact-title">연락 / 협업</h2>
-      <p class="section-lead">반복 업무를 실제 도구로 바꾸는 작업이 필요하다면 공개 이슈로 연락할 수 있습니다.</p>
+      <h2 id="contact-title">연락 / 검증</h2>
+      <p class="section-lead">프로젝트 검증, 데모 확인, 저장소 개선 제안은 GitHub Issue로 남길 수 있습니다.</p>
       <div class="quick-actions">
-        <a class="button primary" href="https://github.com/lucasung-debug/hermes-ops-dashboard/issues/new?title=%5BPortfolio%20Contact%5D%20협업%20문의&body=포트폴리오를%20보고%20문의합니다.%0A%0A관심%20있는%20작업:%20">새 협업 이슈 만들기</a>
+        <a class="button primary" href="https://github.com/lucasung-debug/hermes-ops-dashboard-page/issues/new?title=%5BPortfolio%20Evidence%5D%20검증%20문의&body=바이브%20코딩%20포트폴리오를%20보고%20문의합니다.%0A%0A확인하고%20싶은%20프로젝트:%20">검증 이슈 만들기</a>
+        <a class="button" href="https://github.com/lucasung-debug">GitHub Profile</a>
+        <a class="button" href="https://github.com/lucasung-debug/hermes-ops-dashboard-page">Public Repo</a>
+        <a class="button" href="llms.txt">llms.txt</a>
       </div>
     </section>
   </main>
 
-  <nav class="bottom-bar" aria-label="모바일 빠른 작업">
-    <a href="#owned-work">Cases</a>
-    <a href="#workflow">Process</a>
-    <a href="#small-tools">Tools</a>
-    <a href="#contributions">Contrib</a>
+  <nav class="bottom-bar" aria-label="모바일 빠른 이동">
+    <a href="#flagship">Projects</a>
+    <a href="#role">Role</a>
+    <a href="#aeo-geo">AEO</a>
+    <a href="#faq">FAQ</a>
   </nav>
-  <script>
-    (function () {
-      var status = document.getElementById("command-status");
-      var copiedTimer = null;
-
-      function fallbackCopy(text) {
-        var textarea = document.createElement("textarea");
-        textarea.value = text;
-        textarea.setAttribute("readonly", "");
-        textarea.style.position = "fixed";
-        textarea.style.top = "-9999px";
-        document.body.appendChild(textarea);
-        textarea.select();
-        var copied = document.execCommand("copy");
-        document.body.removeChild(textarea);
-        return copied ? Promise.resolve() : Promise.reject(new Error("copy failed"));
-      }
-
-      function copyCommand(text) {
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          return navigator.clipboard.writeText(text).catch(function () {
-            return fallbackCopy(text);
-          });
-        }
-        return fallbackCopy(text);
-      }
-
-      function markCopied(button, command) {
-        document.querySelectorAll(".command-chip.copied").forEach(function (chip) {
-          chip.classList.remove("copied");
-        });
-        button.classList.add("copied");
-        button.setAttribute("aria-label", "복사됨: " + command);
-        status.textContent = "복사됨: " + command + " · Telegram에 붙여넣기";
-        status.classList.add("ready");
-
-        if (copiedTimer) {
-          window.clearTimeout(copiedTimer);
-        }
-        copiedTimer = window.setTimeout(function () {
-          button.classList.remove("copied");
-          button.setAttribute("aria-label", "Hermes 명령 복사: " + command);
-        }, 1800);
-      }
-
-      document.querySelectorAll("[data-command]").forEach(function (button) {
-        button.addEventListener("click", function () {
-          var command = button.getAttribute("data-command");
-          copyCommand(command).then(function () {
-            markCopied(button, command);
-          }).catch(function () {
-            status.textContent = "복사 실패: 명령어를 길게 눌러 직접 복사하세요.";
-            status.classList.remove("ready");
-          });
-        });
-      });
-    }());
-  </script>
 </body>
 </html>

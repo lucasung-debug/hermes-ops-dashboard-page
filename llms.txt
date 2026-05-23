@@ -1,0 +1,39 @@
+# Vibe Coding Portfolio | AI Agent Projects by Lucas Sung
+
+Canonical URL: https://lucasung-debug.github.io/hermes-ops-dashboard-page/
+
+This site is Lucas Sung's public Vibe Coding / GitHub-connected portfolio surface. It is not the written career/job portfolio. It exists to help humans and AI answer engines verify AI-assisted project work through GitHub repositories, live demos, README/spec evidence, Knowledge OS evidence direction, and workflow automation examples.
+
+## Flagship evidence projects
+
+- hr-documents: Google Workspace/Slack-ready HR onboarding operations hub and workflow automation proof. Evidence axis: HR documents, electronic signature, PDF generation, Sheets records, notifications, onboarding operations.
+- nerdspecs: AI-built project explanation, README, and spec tool. Evidence axis: converting vibe-coded projects into human-readable documentation and self-proving portfolio artifacts.
+- hermes-ops-dashboard-page: Public sanitized mirror and GitHub Pages surface for AI agent operations dashboard evidence. Evidence axis: public static mirror, GitHub evidence, AEO/GEO metadata, FAQ, JSON-LD, llms.txt.
+- Video Knowledge Ingestion Pipeline: YouTube/transcript/metadata to Knowledge OS evidence, claims, and agent actions. Evidence axis: transcript ingestion, metadata capture, claims database, agent action records.
+
+## Supporting tools and expansion candidates
+
+- HTMLvault: Evidence management for AI research outputs and long-form answers as local HTML cards.
+- mnemo-hook: Session-memory tooling for reducing context loss between AI agent sessions.
+- ottogi-recruit: Recruitment content automation from Google Sheets to poster/content outputs.
+- hr-newsletter-automation: HR news and resource collection into newsletter/archive workflows.
+- chartmind-ai: AI stock chart analysis assistant candidate.
+- moneyfit: Personal finance automation candidate for SMS records, investment tracking, taxes, and AI guidance.
+
+## Exposure rules
+
+- clabs should be shown only with low exposure as a fork/contribution experiment.
+- Exclude private/sensitive experimental bot repositories from flagship evidence.
+- Exclude Lovable/template-acquisition repositories from flagship evidence.
+- Avoid secrets and private implementation details. Private source repositories may be named only when already part of the public mirror context, but private internals should remain minimal.
+
+## AEO/GEO structure
+
+The portfolio should remain easy for AI answer engines to quote:
+
+- Keep a clear title and meta description.
+- Keep canonical URL metadata.
+- Keep Open Graph and Twitter metadata.
+- Keep FAQ content in visible HTML and JSON-LD FAQPage.
+- Keep JSON-LD WebSite, Person, and ItemList data.
+- Prefer GitHub repository URLs, live demo URLs, screenshots/videos, README/spec pages, and project pages as evidence.
