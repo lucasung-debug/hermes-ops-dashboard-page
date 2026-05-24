@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin — Vibe Coding Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-feature-settings: "ss01", "ss02";
+      -webkit-font-smoothing: antialiased;
+      font-size: 14px; line-height: 1.5;
+      overflow-x: hidden;
+    }
+    ::selection { background: #3b82f6; color: #fff; }
+    input, textarea, select, button { font-family: inherit; }
+    a { color: inherit; text-decoration: none; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.14); }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .admin-grid-2col { grid-template-columns: 1fr !important; }
+      .admin-stats-row { flex-direction: column !important; }
+      .admin-stats-row > * { min-width: auto !important; }
+    }
+    @media (max-width: 640px) {
+      .admin-main-content { padding: 20px 16px 40px !important; }
+      .admin-sidebar-desktop { display: none !important; }
+      .admin-mobile-nav { display: flex !important; }
+    }
+  </style>
+</head>
+<body>
+  <div id="admin-root"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <script type="text/babel" src="tweaks-panel.jsx"></script>
+  <script type="text/babel" src="admin-shared.jsx"></script>
+  <script type="text/babel" src="admin-pages.jsx"></script>
+
+  <script type="text/babel">
+    const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+      "variant": "classic",
+      "accentColor": {
+        "value": "blue",
+        "color": "#3b82f6"
+      }
+    }/*EDITMODE-END*/;
+
+    const AdminApp = () => {
+      const [tweaks, setTweak] = useTweaks(TWEAK_DEFAULTS);
+      const [page, setPage] = React.useState('login');
+      const theme = getThemeColors(tweaks.variant, tweaks.accentColor);
+
+      const navigate = (p) => setPage(p);
+
+      /* Mobile nav items (same as sidebar) */
+      const mobileNavItems = [
+        { id: 'dashboard', icon: 'dashboard', label: '대시보드' },
+        { id: 'projects', icon: 'folder', label: '프로젝트' },
+        { id: 'inquiries', icon: 'mail', label: '문의' },
+        { id: 'settings', icon: 'settings', label: '설정' },
+      ];
+
+      const renderPage = () => {
+        switch (page) {
+          case 'dashboard': return <DashboardPage onNavigate={navigate} />;
+          case 'projects': return <ProjectsPage onNavigate={navigate} />;
+          case 'project-edit': return <ProjectEditPage onNavigate={navigate} />;
+          case 'inquiries': return <InquiriesPage />;
+          case 'content': return <ContentPage />;
+          case 'analytics': return <AnalyticsPage />;
+          case 'settings': return <SettingsPage />;
+          case 'media': return <MediaPage />;
+          default: return <DashboardPage onNavigate={navigate} />;
+        }
+      };
+
+      return (
+        <ThemeCtx.Provider value={theme}>
+          {page === 'login' ? (
+            <LoginPage onLogin={() => navigate('dashboard')} />
+          ) : (
+            <div style={{ display: 'flex', minHeight: '100vh', background: theme.bg }}>
+              {/* Desktop Sidebar */}
+              <div className="admin-sidebar-desktop">
+                <Sidebar currentPage={page} onNavigate={navigate} variant={tweaks.variant} />
+              </div>
+
+              {/* Main Content */}
+              <main className="admin-main-content" style={{
+                flex: 1, marginLeft: theme.sidebarW, padding: '28px 32px 48px',
+                minHeight: '100vh', transition: 'margin-left 0.25s ease',
+                animation: 'fadeIn 0.3s ease forwards',
+              }}>
+                {renderPage()}
+              </main>
+
+              {/* Mobile Bottom Nav */}
+              <nav className="admin-mobile-nav" style={{
+                display: 'none', position: 'fixed', bottom: 0, left: 0, right: 0,
+                zIndex: 100, background: theme.surface, borderTop: '1px solid rgba(255,255,255,0.06)',
+                padding: '8px 12px calc(8px + env(safe-area-inset-bottom, 0px))',
+                justifyContent: 'space-around',
+              }}>
+                {mobileNavItems.map(item => (
+                  <button key={item.id} onClick={() => navigate(item.id)} style={{
+                    display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 3,
+                    background: 'none', border: 'none', cursor: 'pointer', padding: '6px 12px',
+                    color: page === item.id ? theme.accent : 'rgba(255,255,255,0.35)',
+                    fontSize: 10, fontFamily: 'inherit', transition: 'color 0.15s',
+                  }}>
+                    <AdminIcon name={item.icon} size={20} />
+                    <span>{item.label}</span>
+                  </button>
+                ))}
+              </nav>
+            </div>
+          )}
+
+          {/* Tweaks Panel */}
+          <TweaksPanel title="Admin 디자인">
+            <TweakSection label="레이아웃">
+              <TweakRadio label="사이드바 스타일" value={tweaks.variant}
+                options={[
+                  { value: 'classic', label: 'Classic' },
+                  { value: 'compact', label: 'Compact' },
+                  { value: 'modern', label: 'Modern' },
+                ]}
+                onChange={v => setTweak('variant', v)} />
+            </TweakSection>
+            <TweakSection label="색상">
+              <TweakColor label="액센트 컬러" value={tweaks.accentColor}
+                options={[
+                  { value: 'blue', color: '#3b82f6' },
+                  { value: 'violet', color: '#8b5cf6' },
+                  { value: 'cyan', color: '#06b6d4' },
+                ]}
+                onChange={v => setTweak('accentColor', v)} />
+            </TweakSection>
+          </TweaksPanel>
+        </ThemeCtx.Provider>
+      );
+    };
+
+    ReactDOM.createRoot(document.getElementById('admin-root')).render(<AdminApp />);
+  </script>
+</body>
+</html>
