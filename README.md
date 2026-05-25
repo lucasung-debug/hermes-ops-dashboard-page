@@ -5,7 +5,7 @@ Public evidence page for Lucas Sung's HR DX portfolio cases.
 This repository serves the GitHub Pages surface that verifies the DX cases described in the career/job portfolio. The page is not the written portfolio itself. It is the proof layer: each case shows the workplace problem, AI coordination method, demo video, and measured result.
 
 - Live URL: https://lucasung-debug.github.io/hermes-ops-dashboard-page/
-- Career portfolio link target: https://lucasung-debug.github.io/hr-ops-portfolio/
+- Career portfolio link target: https://smjportfolio.com/
 - Public repo: https://github.com/lucasung-debug/hermes-ops-dashboard-page
 
 ## Scope
