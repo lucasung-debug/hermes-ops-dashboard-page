@@ -1,21 +1,27 @@
 # Vibe Coding Portfolio
 
-This repository currently serves the public Vibe Coding / GitHub-connected portfolio surface for Lucas Sung.
+Public evidence page for Lucas Sung's HR DX portfolio cases.
 
-It was originally a public GitHub Pages mirror for the sanitized Hermes Ops Dashboard, but the live page is now framed as a portfolio evidence surface: GitHub projects, live demos, README/spec evidence, Knowledge OS direction, AEO/GEO metadata, FAQ, JSON-LD, and `llms.txt`.
+This repository serves the GitHub Pages surface that verifies the DX cases described in the career/job portfolio. The page is not the written portfolio itself. It is the proof layer: each case shows the workplace problem, AI coordination method, demo video, and measured result.
 
 - Live URL: https://lucasung-debug.github.io/hermes-ops-dashboard-page/
-- Private source repo: https://github.com/lucasung-debug/hermes-ops-dashboard
-- Public mirror repo: https://github.com/lucasung-debug/hermes-ops-dashboard-page
+- Career portfolio link target: https://lucasung-debug.github.io/hr-ops-portfolio/
+- Public repo: https://github.com/lucasung-debug/hermes-ops-dashboard-page
 
 ## Scope
 
-- This is not the written career/job portfolio.
-- This is the public vibe-coding evidence portfolio.
-- Flagship evidence projects: `hr-documents`, `nerdspecs`, `hermes-ops-dashboard-page`, and `Video Knowledge Ingestion Pipeline`.
-- Supporting tools and candidates: `HTMLvault`, `mnemo-hook`, `ottogi-recruit`, `hr-newsletter-automation`, `chartmind-ai`, and `moneyfit`.
-- Low exposure: `clabs` as a fork/contribution experiment.
-- Excluded from flagship evidence: private/sensitive experimental bot repositories and Lovable/template-acquisition repos.
+- Primary purpose: verify HR DX cases from the career portfolio.
+- Flagship evidence cases:
+  - Condolence flower order automation (`demos/gyeongjo-flow.mp4`)
+  - E-signature collection program (`demos/hr-esign.mp4`)
+  - Job keyword analysis agent (`demos/job-keyword-mining.mp4`)
+  - Recruit poster generator (`demos/ottogi-recruit.mp4`)
+- Supporting archive: `HTMLvault`, `mnemo-hook`, `ottogi-recruit`, `hr-newsletter-automation`, `chartmind-ai`, and `moneyfit`.
+- Excluded from flagship evidence: private or sensitive experimental repositories and unrelated template/acquisition repos.
 
-This mirror may still be generated from `site/index.html` in the private source repo.
-Commit and push from this mirror only after Hermes verification.
+## Verification Notes
+
+- Keep visible HTML, JSON-LD, README, and `llms.txt` aligned around the same 4 evidence cases.
+- Keep demo media local under `demos/`.
+- Do not expose secrets or private implementation details.
+- Push only after local visual/function checks pass.

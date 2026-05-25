@@ -286,6 +286,84 @@ a { color: inherit; text-decoration: none; }
 }
 .card-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 
+/* Evidence Blocks */
+.evidence-stack {
+  display: grid;
+  gap: 20px;
+}
+.evidence-card {
+  display: grid;
+  gap: 28px;
+  padding: 28px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  transition: border-color 0.25s, background 0.25s;
+}
+.evidence-card:hover {
+  border-color: var(--border-hover);
+  background: var(--bg-card-hover);
+}
+.case-kicker {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+.portfolio-badge {
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  padding: 0 10px;
+  border-radius: var(--r-pill);
+  background: rgba(8,145,178,0.07);
+  border: 1px solid rgba(8,145,178,0.14);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--accent-cyan);
+}
+.evidence-card h3 {
+  margin-bottom: 22px;
+  font-size: 26px;
+  line-height: 1.25;
+  letter-spacing: -0.9px;
+}
+.evidence-points {
+  display: grid;
+  gap: 14px;
+}
+.evidence-point {
+  display: grid;
+  gap: 5px;
+  padding-left: 14px;
+  border-left: 2px solid rgba(37,99,235,0.14);
+}
+.evidence-point strong {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--accent);
+}
+.evidence-point p {
+  font-size: 14px;
+  line-height: 1.65;
+}
+.evidence-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 22px;
+}
+.evidence-video {
+  align-self: start;
+  aspect-ratio: 16 / 9;
+  min-height: 220px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  background: linear-gradient(145deg, rgba(0,0,0,0.015), rgba(0,0,0,0.005));
+}
+
 /* Tags */
 .tag {
   display: inline-flex; align-items: center; height: 26px; padding: 0 10px;
@@ -443,6 +521,7 @@ a { color: inherit; text-decoration: none; }
 @media (min-width: 1024px) {
   h1 { font-size: 56px; letter-spacing: -2.8px; }
   .grid-4 { grid-template-columns: repeat(4, 1fr); }
+  .evidence-card { grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr); align-items: center; }
   .hero { padding: 160px 0 112px; }
   .section { padding: 112px 0; }
 }
@@ -463,6 +542,9 @@ a { color: inherit; text-decoration: none; }
   .section { padding: 64px 0; }
   .case-card { padding: 24px; }
   .case-card h3 { font-size: 18px; }
+  .evidence-card { padding: 22px; }
+  .evidence-card h3 { font-size: 20px; }
+  .evidence-video { min-height: 180px; }
   .contact-actions { flex-direction: column; }
   .contact-actions .btn { width: 100%; }
   body { padding-bottom: 72px; }
