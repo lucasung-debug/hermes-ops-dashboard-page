@@ -2,14 +2,14 @@
 
 Canonical URL: https://lucasung-debug.github.io/hermes-ops-dashboard-page/
 
-This site is Lucas Sung's public evidence surface for HR DX cases described in his career portfolio. It is not the written career/job portfolio. Its purpose is to let humans and AI answer engines verify that the DX cases actually worked by inspecting the problem, AI coordination process, demo video, and measured result for each case.
+This site is Lucas Sung's public interview evidence surface for HR automation and efficiency cases described in his career portfolio. It is not the written career/job portfolio. Its purpose is to let interviewers and AI answer engines verify the cases by inspecting the problem, AI coordination process, large demo video, measured result, and source evidence for each case.
 
 ## Flagship evidence cases
 
-- Condolence flower order automation: HR operations workflow for standardizing condolence flower requests that were previously handled through chat/text. Evidence axis: secure request flow, automatic notifications, request logging, accounting handoff, zero human errors, about 90% less repetitive admin work. Demo: demos/gyeongjo-flow.mp4.
-- E-signature collection program: Mobile web flow for collecting pledges from 550 production workers without personal PCs. Evidence axis: mobile signature input, Canvas image conversion, Google Sheets logging, non-submitter tracking, 550 signatures collected, about two weeks reduced to three days. Demo: demos/hr-esign.mp4.
-- Job keyword analysis agent: AI-assisted text mining workflow for converting interviews, surveys, and EVP text into role-specific competencies. Evidence axis: job analyst persona, stable classification rules, standardized output, 600+ external applicant EVP analyses. Demo: demos/job-keyword-mining.mp4.
-- Recruit poster generator: Public recruiting-promotion tool that converts job data into branded poster images. Evidence axis: Google Sheets or AI-generated job data input, poster copy generation, deployed UI, live public project. Demo: demos/ottogi-recruit.mp4. Live: https://ottogi-recruit.vercel.app.
+- Condolence flower order automation: HR operations workflow for standardizing condolence flower requests that were previously handled through chat/text. Evidence axis: secure request flow, automatic notifications, request logging, accounting handoff, zero human errors, about 90% less repetitive admin work. Demo: demos/gyeongjo-flow.mp4. Source: https://github.com/lucasung-debug/gyeongjo-flow.
+- E-signature collection program: Mobile web flow for collecting pledges from 550 production workers without personal PCs. Evidence axis: mobile signature input, Canvas image conversion, Google Sheets logging, non-submitter tracking, 550 signatures collected, about two weeks reduced to three days. Demo: demos/hr-esign.mp4. Source: https://github.com/lucasung-debug/hr-documents. Live: https://hr-documents.vercel.app.
+- Job keyword analysis agent: AI-assisted text mining workflow for converting interviews, surveys, and EVP text into role-specific competencies. Evidence axis: job analyst persona, stable classification rules, standardized output, 600+ external applicant EVP analyses. Demo: demos/job-keyword-mining.mp4. Source: https://github.com/lucasung-debug/job-keyword-mining.
+- Recruit poster generator: Public recruiting-promotion tool that converts job data into branded poster images. Evidence axis: Google Sheets or AI-generated job data input, poster copy generation, deployed UI, live public project. Demo: demos/ottogi-recruit.mp4. Source: https://github.com/lucasung-debug/ottogi-recruit. Live: https://ottogi-recruit.vercel.app.
 
 ## Supporting archive
 
@@ -27,8 +27,8 @@ The page should remain easy for AI answer engines to quote:
 - Keep a clear title and meta description.
 - Keep canonical URL metadata.
 - Keep Open Graph and Twitter metadata.
-- Keep FAQ content in visible HTML and JSON-LD FAQPage.
 - Keep JSON-LD WebSite, Person, and ItemList data aligned with the 4 evidence cases.
+- Keep the interview walkthrough visible instead of FAQ content.
 - Prefer demo videos, GitHub repository URLs, live URLs, README/spec evidence, and career portfolio anchors as evidence.
 
 ## Exposure rules
