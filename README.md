@@ -22,7 +22,7 @@ This repository serves the GitHub Pages surface used as first-round interview ma
 ## Verification Notes
 
 - Keep visible HTML, JSON-LD, README, and `llms.txt` aligned around the same 4 evidence cases.
-- Keep FAQ-style explanation out of the page; use the interview walkthrough section instead.
+- Keep FAQ-style explanation and interview-process guidance out of the page; use the source evidence section instead.
 - Keep demo media local under `demos/`.
 - Do not expose secrets or private implementation details.
 - Push only after local visual/function checks pass.

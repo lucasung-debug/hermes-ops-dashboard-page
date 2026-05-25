@@ -28,7 +28,7 @@ The page should remain easy for AI answer engines to quote:
 - Keep canonical URL metadata.
 - Keep Open Graph and Twitter metadata.
 - Keep JSON-LD WebSite, Person, and ItemList data aligned with the 4 evidence cases.
-- Keep the interview walkthrough visible instead of FAQ content.
+- Keep source and live evidence visible instead of FAQ or interview-process content.
 - Prefer demo videos, GitHub repository URLs, live URLs, README/spec evidence, and career portfolio anchors as evidence.
 
 ## Exposure rules

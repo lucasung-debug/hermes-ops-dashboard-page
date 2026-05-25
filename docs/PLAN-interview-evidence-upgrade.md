@@ -2,7 +2,7 @@
 
 ## Target
 
-Rework the Hermes evidence page into a first-round interview support surface. The page must help explain automation and efficiency projects visually, with the interviewer able to inspect the process, demo video, and source evidence without hitting broken or vague links.
+Rework the Hermes evidence page into a first-round interview support surface. The page must help explain automation and efficiency projects visually, with the interviewer able to inspect the cases, demo video, and source evidence without hitting broken or vague links.
 
 Primary interview prompt:
 
@@ -41,18 +41,18 @@ Do not copy:
 
 ### Cycle 1 - Problem Fit
 
-Goal: make the page answer the interviewer's request, not general portfolio questions.
+Goal: make the page answer the interviewer's request, not general portfolio questions or an explanation of the interview process.
 
 Decision:
 
 - Rename the page intent from broad "DX evidence surface" toward "automation/efficiency interview proof".
-- Keep four flagship cases, but present them as interview talking tracks.
-- Replace FAQ with an interview-ready section such as "Interview Walkthrough" or "What to show in 10 minutes".
+- Keep four flagship cases, but present them as inspectable proof blocks.
+- Replace FAQ with source and live evidence links, not interview-process guidance.
 
 Acceptance:
 
 - No nav item or section titled FAQ/question remains.
-- First viewport states that this is a masked, demo-based proof page for interview discussion.
+- First viewport states that this is a masked, demo-based proof page for discussing automation cases.
 
 ### Cycle 2 - Demo Visibility and Playback
 
@@ -103,7 +103,7 @@ Acceptance:
 - Recruit and e-sign cards have live links.
 - All external links return HTTP 200 or a known expected GitHub page status.
 
-### Cycle 4 - Interview Narrative Structure
+### Cycle 4 - Case Evidence Structure
 
 Goal: each case should be explainable in 2-3 minutes.
 
@@ -116,8 +116,8 @@ Recommended card structure:
    - Design / AI role split
    - Validation
    - Result
-4. Interview prompt line:
-   - "면접에서 설명할 포인트: 어떤 병목을 어떻게 시스템으로 바꿨는가"
+4. Design point line:
+   - "설계 포인트: 어떤 병목을 어떻게 시스템으로 바꿨는가"
 
 Borrowed VibeLabs pattern:
 
@@ -136,9 +136,8 @@ Final page shape:
 
 1. Hero: "면접용 자동화/효율화 증거 자료" with 4-case status strip.
 2. Evidence cases: four large video-first cards.
-3. Interview walkthrough: recommended 10-minute presentation order.
-4. Source archive: compact link grid for repositories and live demos.
-5. Contact/footer.
+3. Source archive: compact link grid for repositories and live demos.
+4. Contact/footer.
 
 Remove:
 
@@ -169,7 +168,7 @@ Tasks:
 - Resize evidence cards to video-first layout.
 - Add all repo/live CTAs.
 - Remove FAQ section, FAQ nav, FAQ i18n entries, and FAQ JSON-LD.
-- Replace FAQ with "Interview Walkthrough".
+- Replace FAQ with source and live evidence.
 
 Verification:
 
@@ -186,7 +185,7 @@ Verification:
 
 Tasks:
 
-- Add case-level "설계 포인트" and "면접 질문 대응" lines.
+- Add case-level "설계 포인트" lines.
 - Add compact source archive grid inspired by VibeLabs service-card structure.
 - Add optional focus-mode overlay for video if interview laptop screen is small.
 
@@ -194,7 +193,7 @@ Verification:
 
 - Full-page screenshot desktop/mobile.
 - Link check for GitHub and live demo CTAs.
-- Manual 10-minute walkthrough script check.
+- Manual scan check that the page stays focused on evidence, not interview-process instructions.
 
 ## Stop Condition
 

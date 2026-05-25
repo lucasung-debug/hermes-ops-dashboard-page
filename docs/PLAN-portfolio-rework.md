@@ -54,7 +54,7 @@
 | About 4카드 + Process 4단계 | **"AI 조율 방식" 1섹션**으로 압축 | 추상 역량/일반론은 검증에 약함 → 핵심만 |
 | Demo 4탭 **+** Projects 4카드 (중복) | **사례별 검증 블록 4개**로 통합 | 각 블록 = 문제 → AI 조율 과정·방법론(주인공) → 데모영상(증명) → 정량 성과 → 직무포폴 DX 연결 배지 |
 | In Progress 6개 | **"확장 중" 아카이브**로 강등·정직 표기 | 검증과 무관(연역 불가) → 2순위 목적으로 축소 |
-| FAQ | 검증·협업 관점으로 갱신 | |
+| FAQ | 제거 후 원본·라이브 증거 섹션으로 대체 | 면접 절차 설명이 아니라 사례 검증 자료가 목적 |
 | Contact | **+ 직무 포트폴리오 CTA** | 최종 목표(상호 연결) |
 
 **핵심 컴포넌트 = "사례별 검증 블록"** (4개 반복):
@@ -80,7 +80,7 @@
    - 내부 식별자 정리: `data-tab`/`data-panel`의 옛 이름(`pipeline`/`nerdspecs`/`hermes`) → 의미 일치 이름(`recruit`/`gift`/`kw`/`sign`)
    - In Progress(`#supporting`) → "확장 중" 축소 섹션
    - nav/footer "직무 포트폴리오" `href="#"` → 실제 `hr-ops-portfolio` 라이브 URL (Phase B에서 URL 확정)
-   - **JSON-LD 갱신**: `ItemList`(flagship)을 4사례로, `FAQPage` 갱신, description meta 갱신
+   - **JSON-LD 갱신**: `ItemList`(flagship)을 4사례로, FAQ 구조 제거, description meta 갱신
    - **reveal 버그 수정**: `index.html` 하단 스크립트의 IntersectionObserver에 (a) 로드 시 초기 뷰포트 요소 즉시 표시 (b) IO 미발동/미지원 fallback 전체 노출 추가 (`revealObs` 블록, 현 line ~367)
 2. **i18n.js** — 위 카피 변경을 KO/EN/ZH/JA 4개 언어 모두 동기화 (`I18N.ko/en/zh/ja`). 신규 키(검증 블록 과정·방법론 텍스트) 추가, 사라진 키 정리
 3. **styles.css** — 검증 블록 레이아웃 보강 (필요 최소). 기존 라이트 프리미엄 톤 유지
