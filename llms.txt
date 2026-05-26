@@ -1,24 +1,22 @@
-# Vibe Coding Portfolio | HR DX Evidence by Lucas Sung
+# Vibe Coding Portfolio | AI Judgment Evidence by Lucas Sung
 
 Canonical URL: https://lucasung-debug.github.io/hermes-ops-dashboard-page/
 
-This site is Lucas Sung's public interview evidence surface for HR automation and efficiency cases described in his career portfolio. It is not the written career/job portfolio. Its purpose is to let interviewers and AI answer engines verify the cases by inspecting the problem, AI coordination process, large demo video, measured result, and source evidence for each case.
+This site is Lucas Sung's public evidence surface for HR DX automation cases described in his career portfolio. It is not the written career/job portfolio. Its purpose is to show the user's durable AI capability: narrowing the question, verifying AI output, and deciding what to keep or discard.
 
 ## Flagship evidence cases
 
-- Condolence flower order automation: HR operations workflow for standardizing condolence flower requests that were previously handled through chat/text. Evidence axis: secure request flow, automatic notifications, request logging, accounting handoff, zero human errors, about 90% less repetitive admin work. Demo: demos/gyeongjo-flow.mp4. Source: https://github.com/lucasung-debug/gyeongjo-flow.
-- E-signature collection program: Mobile web flow for collecting pledges from 550 production workers without personal PCs. Evidence axis: mobile signature input, Canvas image conversion, Google Sheets logging, non-submitter tracking, 550 signatures collected, about two weeks reduced to three days. Demo: demos/hr-esign.mp4. Source: https://github.com/lucasung-debug/hr-documents. Live: https://hr-documents.vercel.app.
-- Job keyword analysis agent: AI-assisted text mining workflow for converting interviews, surveys, and EVP text into role-specific competencies. Evidence axis: job analyst persona, stable classification rules, standardized output, 600+ external applicant EVP analyses. Demo: demos/job-keyword-mining.mp4. Source: https://github.com/lucasung-debug/job-keyword-mining.
-- Recruit poster generator: Public recruiting-promotion tool that converts job data into branded poster images. Evidence axis: Google Sheets or AI-generated job data input, poster copy generation, deployed UI, live public project. Demo: demos/ottogi-recruit.mp4. Source: https://github.com/lucasung-debug/ottogi-recruit. Live: https://ottogi-recruit.vercel.app.
+- Condolence flower order automation: HR operations workflow for standardizing condolence flower requests that were previously handled through KakaoTalk or text. Evidence flow: question the requester/owner/vendor/accounting split, verify login-to-sheet behavior with invalid inputs, keep the standard form and automatic notifications. Metric: 0 human errors, about 90% less repetitive administration. Demo: demos/gyeongjo-flow.mp4. Source: https://github.com/lucasung-debug/gyeongjo-flow.
+- E-signature collection program: Mobile web flow for collecting pledges from 550 production workers without personal PCs. Evidence flow: accept the no-PC field constraint, verify finger signature input and image integrity, discard the PC process and unify on mobile. Metric: all 550 signatures collected, a two-week task became three days. Demo: demos/hr-esign.mp4. Source: https://github.com/lucasung-debug/hr-documents. Live: https://hr-documents.vercel.app.
+- Job keyword analysis agent: AI-assisted text mining workflow for converting interviews and surveys into role-specific competencies. Evidence flow: ask whether fixing AI as a job analyst can reduce interpretation variance, verify stable output for the same input, keep one classification standard. Metric: quantified qualitative data and expanded to 600 external applicant EVP analyses. Demo: demos/job-keyword-mining.mp4. Source: https://github.com/lucasung-debug/job-keyword-mining.
+- Recruit poster generator: Public recruiting-promotion tool that converts job data into branded poster images. Evidence flow: identify brand-tone drift, verify data structuring, copy generation, and result review in a public tool, choose generation tooling over manual design. Metric: posters come directly from sheet data or AI-made data. Demo: demos/ottogi-recruit.mp4. Source: https://github.com/lucasung-debug/ottogi-recruit. Live: https://ottogi-recruit.vercel.app.
 
-## Supporting archive
+## Learning archive
 
-- HTMLvault: Evidence management for AI research outputs and long-form answers as local HTML cards.
-- mnemo-hook: Session-memory tooling for reducing context loss between AI agent sessions.
-- ottogi-recruit: Recruitment content automation from Google Sheets to poster/content outputs.
-- hr-newsletter-automation: HR news and resource collection into newsletter/archive workflows.
-- chartmind-ai: AI stock chart analysis assistant candidate.
-- moneyfit: Personal finance automation candidate for spending, investment, tax, and AI-guidance workflows.
+- HTMLvault: redirected and waiting. Markdown was judged better than HTML for knowledge management; the project can return when enough knowledge accumulates.
+- mnemo-hook: replaced. It connected session context directly, but Obsidian and hermes automated records became better.
+- hr-newsletter-automation: paused with a planned restart. It was an actually operated HR tool, paused after leaving the HR role.
+- moneyfit: converting to app. The web tool is being converted into an app with an AI agent.
 
 ## AEO/GEO structure
 
@@ -28,11 +26,11 @@ The page should remain easy for AI answer engines to quote:
 - Keep canonical URL metadata.
 - Keep Open Graph and Twitter metadata.
 - Keep JSON-LD WebSite, Person, and ItemList data aligned with the 4 evidence cases.
-- Keep source and live evidence visible instead of FAQ or interview-process content.
+- Keep the on-screen narrative aligned to questioning, verification, and judgment.
 - Prefer demo videos, GitHub repository URLs, live URLs, README/spec evidence, and career portfolio anchors as evidence.
 
 ## Exposure rules
 
 - Avoid secrets and private implementation details.
-- Do not present supporting archive items as verified flagship DX evidence.
+- Do not present learning archive items as verified flagship DX evidence.
 - Keep the career portfolio as context and this site as evidence.
