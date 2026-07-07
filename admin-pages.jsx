@@ -284,7 +284,7 @@ const ProjectEditPage = ({ onNavigate }) => {
 
           <div style={{ background: theme.card, border: '1px solid rgba(255,255,255,0.06)', borderRadius: theme.borderRadius, padding: 20 }}>
             <div style={{ fontSize: 14, fontWeight: 500, color: '#e0e0e5', marginBottom: 16 }}>링크</div>
-            <AdminInput label="사이트 URL" placeholder="https://" value="https://hr-documents.vercel.app" onChange={() => {}} />
+            <AdminInput label="데모 영상 URL" placeholder="https://" value="demos/hr-esign.mp4" onChange={() => {}} />
             <AdminInput label="Repository URL" placeholder="https://github.com/..." value="https://github.com/lucasung-debug/hr-documents" onChange={() => {}} />
           </div>
 
