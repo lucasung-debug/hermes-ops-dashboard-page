@@ -14,9 +14,9 @@ This repository serves the GitHub Pages surface linked from the career portfolio
 - Core thesis: AI makes the output; the human judgment is in what to ask, verify, keep, and discard.
 - Flagship evidence cases:
   - Condolence flower order automation (`demos/gyeongjo-flow.mp4`, source: https://github.com/lucasung-debug/gyeongjo-flow)
-  - E-signature collection program (`demos/hr-esign.mp4`, source: https://github.com/lucasung-debug/hr-documents, live: https://hr-documents.vercel.app)
+  - E-signature collection program (`demos/hr-esign.mp4`, source: https://github.com/lucasung-debug/hr-documents)
   - Job keyword analysis agent (`demos/job-keyword-mining.mp4`, source: https://github.com/lucasung-debug/job-keyword-mining)
-  - Recruit poster generator (`demos/ottogi-recruit.mp4`, source: https://github.com/lucasung-debug/ottogi-recruit, live: https://ottogi-recruit.vercel.app)
+  - Recruit poster generator (`demos/ottogi-recruit.mp4`, source: https://github.com/lucasung-debug/ottogi-recruit)
 - Learning archive: `HTMLvault`, `mnemo-hook`, `hr-newsletter-automation`, and `moneyfit`.
 
 ## Verification Notes
