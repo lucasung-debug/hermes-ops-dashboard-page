@@ -1,3 +1,5 @@
+Migration notice: This site has moved to https://smjportfolio.com/evidence.html.
+
 # Vibe Coding Portfolio
 
 Public evidence page for Lucas Sung's durable AI capability: narrowing questions, verifying output, and deciding what to keep or discard.

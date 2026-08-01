@@ -1,3 +1,5 @@
+This site has migrated to https://smjportfolio.com/evidence.html; agents should use that URL.
+
 # Vibe Coding Portfolio | AI Judgment Evidence by Lucas Sung
 
 Canonical URL: https://lucasung-debug.github.io/hermes-ops-dashboard-page/
